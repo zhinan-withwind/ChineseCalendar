@@ -1,8 +1,8 @@
-package com.zhinan.time.solar;
+package run.zhinan.time.solar;
 
-import com.zhinan.time.base.DateTimeHolder;
-import com.zhinan.time.ganzhi.GanZhiDateTime;
-import com.zhinan.time.lunar.LunarDateTime;
+import run.zhinan.time.base.DateTimeHolder;
+import run.zhinan.time.ganzhi.GanZhiDateTime;
+import run.zhinan.time.lunar.LunarDateTime;
 
 import java.time.LocalDateTime;
 

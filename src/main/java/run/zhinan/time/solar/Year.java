@@ -1,4 +1,4 @@
-package com.zhinan.time.solar;
+package run.zhinan.time.solar;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

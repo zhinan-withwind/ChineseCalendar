@@ -1,8 +1,8 @@
-package com.zhinan.time.base;
+package run.zhinan.time.base;
 
-import com.zhinan.time.ganzhi.GanZhiDateTime;
-import com.zhinan.time.lunar.LunarDateTime;
-import com.zhinan.time.solar.SolarDateTime;
+import run.zhinan.time.ganzhi.GanZhiDateTime;
+import run.zhinan.time.lunar.LunarDateTime;
+import run.zhinan.time.solar.SolarDateTime;
 
 import java.time.LocalDateTime;
 
@@ -14,7 +14,7 @@ public interface DateTimeHolder {
     int getMinute();
     boolean isLeap();
     LocalDateTime  toLocalDateTime();
-    SolarDateTime  toSolarDateTime();
-    LunarDateTime  toLunarDateTime();
+    SolarDateTime toSolarDateTime();
+    LunarDateTime toLunarDateTime();
     GanZhiDateTime toGanZhiDateTime();
 }

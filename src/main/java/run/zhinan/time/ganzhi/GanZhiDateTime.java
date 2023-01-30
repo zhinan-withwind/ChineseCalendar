@@ -1,4 +1,4 @@
-package com.zhinan.time.ganzhi;
+package run.zhinan.time.ganzhi;
 
 import java.time.LocalDateTime;
 

@@ -1,6 +1,6 @@
-package com.zhinan.time.solar;
+package run.zhinan.time.solar;
 
-import com.zhinan.time.base.SolarLunarData;
+import run.zhinan.time.base.SolarLunarData;
 
 import java.time.LocalDateTime;
 import java.util.List;

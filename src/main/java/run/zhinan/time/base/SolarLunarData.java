@@ -1,8 +1,8 @@
-package com.zhinan.time.base;
+package run.zhinan.time.base;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
-import com.zhinan.time.util.FileUtil;
+import run.zhinan.time.util.FileUtil;
 
 import java.time.DateTimeException;
 import java.time.LocalDateTime;

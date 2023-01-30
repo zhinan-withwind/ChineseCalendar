@@ -1,4 +1,4 @@
-package com.zhinan.time.base;
+package run.zhinan.time.base;
 
 public class BaseDateTime {
     Date date;

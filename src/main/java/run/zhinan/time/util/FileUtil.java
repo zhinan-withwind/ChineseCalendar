@@ -1,4 +1,4 @@
-package com.zhinan.time.util;
+package run.zhinan.time.util;
 
 import java.io.FileWriter;
 import java.io.IOException;

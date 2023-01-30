@@ -1,9 +1,8 @@
-package com.zhinan.time;
+package run.zhinan.time;
 
-import com.zhinan.time.lunar.LunarTerm;
-import com.zhinan.time.solar.SolarTerm;
+import run.zhinan.time.lunar.LunarTerm;
+import run.zhinan.time.solar.SolarTerm;
 
-import java.time.LocalDateTime;
 import java.util.Arrays;
 
 public class ChineseCalendar {
