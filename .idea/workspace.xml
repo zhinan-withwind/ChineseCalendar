@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b8f729a4-272c-4389-b1a2-f20ff1d82f7f" name="Changes" comment="初始提交，已完成节气计算部分">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhinan/time/ChineseCalendar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhinan/time/base/BaseDateTime.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhinan/time/base/Date.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhinan/time/base/DateTimeHolder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhinan/time/base/SolarLunarData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhinan/time/base/Time.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhinan/time/ganzhi/GanZhiDateTime.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhinan/time/lunar/LunarDateTime.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhinan/time/lunar/LunarTerm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhinan/time/solar/Day.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhinan/time/solar/Month.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhinan/time/solar/SolarDateTime.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhinan/time/solar/SolarTerm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhinan/time/solar/Year.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhinan/time/util/FileUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data/lunarTermData.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data/solarTermData.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="2KQykE4JG8XcebdARYlaavjGfjj" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/data" />
+    <property name="settings.editor.selected.configurable" value="preferences.pathVariables" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/data" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.zhinan.time.base" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.zhinan.time.utils" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ChineseCalendar" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.zhinan.time.ChineseCalendar" />
+      <module name="ChineseCalendar" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b8f729a4-272c-4389-b1a2-f20ff1d82f7f" name="Changes" comment="" />
+      <created>1673921242024</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1673921242024</updated>
+      <workItem from="1673921244269" duration="71084000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="初始提交，已完成节气计算部分" />
+    <option name="LAST_COMMIT_MESSAGE" value="初始提交，已完成节气计算部分" />
+  </component>
+</project>
