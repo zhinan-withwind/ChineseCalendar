@@ -3,6 +3,8 @@ package run.zhinan.time.solar;
 import run.zhinan.time.base.SolarLunarData;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public final class SolarTerm {
@@ -31,10 +33,9 @@ public final class SolarTerm {
     public final static SolarTerm J12 = new SolarTerm(23,"小寒");
     public final static SolarTerm Z12 = new SolarTerm(24,"大寒");
 
-    public final static SolarTerm[] values = {
+    public final static List<SolarTerm> values = Arrays.asList(
             J01, Z01, J02, Z02, J03, Z03, J04, Z04, J05, Z05, J06, Z06,
-            J07, Z07, J08, Z08, J09, Z09, J10, Z10, J11, Z11, J12, Z12,
-    };
+            J07, Z07, J08, Z08, J09, Z09, J10, Z10, J11, Z11, J12, Z12);
 
     int    value;
     String name;
@@ -61,7 +62,11 @@ public final class SolarTerm {
         return solarTerm;
     }
 
-
+    public static List<SolarTerm> getSolarTerms(int year) {
+        List<SolarTerm> result = new ArrayList<>();
+        SolarTerm.values.forEach(solarTerm -> result.add(solarTerm.of(year)));
+        return result;
+    }
 
     public int getValue() { return value; }
 

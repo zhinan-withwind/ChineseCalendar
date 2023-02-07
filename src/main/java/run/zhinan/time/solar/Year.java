@@ -65,6 +65,11 @@ public class Year {
         int dayOfYear = minuteOfYear < 0 ? minuteOfYear / 1441 - 1 : minuteOfYear / 1441;
         int minuteOfDay = minuteOfYear - 1441 * dayOfYear;
         int hour   = minuteOfDay / 60;
+        if (hour > 23) {
+            dayOfYear++;
+            minuteOfDay -= 1440;
+            hour = 0;
+        }
         int minute = minuteOfDay - 60 * hour;
         return Year.of(year).atDay(dayOfYear).atTime(hour, minute);
     }

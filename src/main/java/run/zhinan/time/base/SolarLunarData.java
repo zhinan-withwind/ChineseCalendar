@@ -267,12 +267,4 @@ public final class SolarLunarData {
 
     private static final double D = 0.2422;
 
-    public static List<LocalDateTime> getSolarTerms(int year) {
-        List<LocalDateTime> result = new ArrayList<>();
-        for (int i = 0; i < 24; i++) {
-
-        }
-        return result;
-    }
-
 }

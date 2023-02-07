@@ -1,20 +1,22 @@
 package run.zhinan.time;
 
-import run.zhinan.time.lunar.LunarTerm;
 import run.zhinan.time.solar.SolarTerm;
 
-import java.util.Arrays;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class ChineseCalendar {
     public static void main(String[] args) {
-//        System.out.println("今天是: " + LocalDateTime.now());
-        Arrays.asList(SolarTerm.values).forEach(solarTerm -> System.out.println(solarTerm.getName() + ": " + solarTerm.of(2023).getDateTime()));
-        System.out.println("------------------------------ ");
-//        for (int m = 1; m <= 12; m++) {
-//            for (LunarTerm lunarTerm : LunarTerm.values()) {
-//                System.out.println(lunarTerm.getName() + ": " + lunarTerm.of(2024, m).getDateTime());
-//            }
-//        }
-        LunarTerm.of(2023).forEach(lunarTerm -> System.out.println(lunarTerm.getName() + ": " + lunarTerm.getDateTime()));
+        // 打印表头
+        System.out.print("年份,");
+        SolarTerm.values.forEach(solarTerm -> System.out.print(solarTerm.getName() + ","));
+        System.out.println();
+
+        for (int y = 1923; y < 2071; y++) {
+            List<SolarTerm> solarTerms = SolarTerm.getSolarTerms(y);
+            StringBuilder sb = new StringBuilder().append(y).append(",");
+            solarTerms.forEach(solarTerm -> sb.append(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm").format(solarTerm.getDateTime())).append(","));
+            System.out.println(sb);
+        }
     }
 }
