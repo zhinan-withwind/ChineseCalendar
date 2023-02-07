@@ -66,4 +66,5 @@ public class SolarDateTime implements DateTimeHolder {
     public GanZhiDateTime toGanZhiDateTime() {
         return GanZhiDateTime.of(toLocalDateTime());
     }
+
 }

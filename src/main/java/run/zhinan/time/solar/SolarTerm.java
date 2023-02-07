@@ -8,34 +8,36 @@ import java.util.Arrays;
 import java.util.List;
 
 public final class SolarTerm {
-    public final static SolarTerm J01 = new SolarTerm(1, "立春");
-    public final static SolarTerm Z01 = new SolarTerm(2, "雨水");
-    public final static SolarTerm J02 = new SolarTerm(3, "惊蛰");
-    public final static SolarTerm Z02 = new SolarTerm(4, "春分");
-    public final static SolarTerm J03 = new SolarTerm(5, "清明");
-    public final static SolarTerm Z03 = new SolarTerm(6, "谷雨");
-    public final static SolarTerm J04 = new SolarTerm(7, "立夏");
-    public final static SolarTerm Z04 = new SolarTerm(8, "小满");
-    public final static SolarTerm J05 = new SolarTerm(9, "芒种");
-    public final static SolarTerm Z05 = new SolarTerm(10,"夏至");
-    public final static SolarTerm J06 = new SolarTerm(11,"小暑");
-    public final static SolarTerm Z06 = new SolarTerm(12,"大暑");
-    public final static SolarTerm J07 = new SolarTerm(13,"立秋");
-    public final static SolarTerm Z07 = new SolarTerm(14,"处暑");
-    public final static SolarTerm J08 = new SolarTerm(15,"白露");
-    public final static SolarTerm Z08 = new SolarTerm(16,"秋分");
-    public final static SolarTerm J09 = new SolarTerm(17,"寒露");
-    public final static SolarTerm Z09 = new SolarTerm(18,"霜降");
-    public final static SolarTerm J10 = new SolarTerm(19,"立冬");
-    public final static SolarTerm Z10 = new SolarTerm(20,"小雪");
-    public final static SolarTerm J11 = new SolarTerm(21,"大雪");
-    public final static SolarTerm Z11 = new SolarTerm(22,"冬至");
-    public final static SolarTerm J12 = new SolarTerm(23,"小寒");
-    public final static SolarTerm Z12 = new SolarTerm(24,"大寒");
+    public final static SolarTerm J01_LICHUN      = new SolarTerm(1, "立春");
+    public final static SolarTerm Z01_YUSHUI      = new SolarTerm(2, "雨水");
+    public final static SolarTerm J02_JINGZHE     = new SolarTerm(3, "惊蛰");
+    public final static SolarTerm Z02_CHUNFEN     = new SolarTerm(4, "春分");
+    public final static SolarTerm J03_QINGMING    = new SolarTerm(5, "清明");
+    public final static SolarTerm Z03_GUYU        = new SolarTerm(6, "谷雨");
+    public final static SolarTerm J04_LIXIA       = new SolarTerm(7, "立夏");
+    public final static SolarTerm Z04_XIAOMAN     = new SolarTerm(8, "小满");
+    public final static SolarTerm J05_MANGZHONG   = new SolarTerm(9, "芒种");
+    public final static SolarTerm Z05_XIAZHI      = new SolarTerm(10,"夏至");
+    public final static SolarTerm J06_XIAOSHU     = new SolarTerm(11,"小暑");
+    public final static SolarTerm Z06_DASHU       = new SolarTerm(12,"大暑");
+    public final static SolarTerm J07_LIQIU       = new SolarTerm(13,"立秋");
+    public final static SolarTerm Z07_CHUSHU      = new SolarTerm(14,"处暑");
+    public final static SolarTerm J08_BAILU       = new SolarTerm(15,"白露");
+    public final static SolarTerm Z08_QIUFEN      = new SolarTerm(16,"秋分");
+    public final static SolarTerm J09_HANLU       = new SolarTerm(17,"寒露");
+    public final static SolarTerm Z09_SHUANGJIANG = new SolarTerm(18,"霜降");
+    public final static SolarTerm J10_LIDONG      = new SolarTerm(19,"立冬");
+    public final static SolarTerm Z10_XIAOXUE     = new SolarTerm(20,"小雪");
+    public final static SolarTerm J11_DAXUE       = new SolarTerm(21,"大雪");
+    public final static SolarTerm Z11_DONGZHI     = new SolarTerm(22,"冬至");
+    public final static SolarTerm J12_XIAOHAN     = new SolarTerm(23,"小寒");
+    public final static SolarTerm Z12_DAHAN       = new SolarTerm(24,"大寒");
 
     public final static List<SolarTerm> values = Arrays.asList(
-            J01, Z01, J02, Z02, J03, Z03, J04, Z04, J05, Z05, J06, Z06,
-            J07, Z07, J08, Z08, J09, Z09, J10, Z10, J11, Z11, J12, Z12);
+            J01_LICHUN,     Z01_YUSHUI,     J02_JINGZHE,    Z02_CHUNFEN,    J03_QINGMING,   Z03_GUYU,
+            J04_LIXIA,      Z04_XIAOMAN,    J05_MANGZHONG,  Z05_XIAZHI,     J06_XIAOSHU,    Z06_DASHU,
+            J07_LIQIU,      Z07_CHUSHU,     J08_BAILU,      Z08_QIUFEN,     J09_HANLU,      Z09_SHUANGJIANG,
+            J10_LIDONG,     Z10_XIAOXUE,    J11_DAXUE,      Z11_DONGZHI,    J12_XIAOHAN,    Z12_DAHAN);
 
     int    value;
     String name;
@@ -74,5 +76,37 @@ public final class SolarTerm {
 
     public LocalDateTime getDateTime() {
         return dateTime;
+    }
+
+    public SolarTerm roll(int i) {
+        return values.get((getValue() - 1 + i) % 24);
+    }
+
+    private static int getSolarTermYear(LocalDateTime dateTime) {
+        int year = dateTime.getYear();
+        // 在立春之前，则需要算是上一年
+        if (dateTime.isBefore(SolarTerm.J01_LICHUN.of(year).getDateTime())) {
+            year -= 1;
+        }
+        return year;
+    }
+
+    public static SolarTerm getLastMajorSolarTerm(LocalDateTime dateTime) {
+        int year = getSolarTermYear(dateTime);
+        SolarTerm solarTerm = SolarTerm.J01_LICHUN;
+        for (int i = 0; i < 12; i++) {
+            LocalDateTime currentSolarTermDateTime = solarTerm.of(year).getDateTime();
+            LocalDateTime nextSolarTermDateTime    = solarTerm.roll(2).of(i < 11 ? year : year + 1).getDateTime();
+            if (!currentSolarTermDateTime.isAfter(dateTime) && nextSolarTermDateTime.isAfter(dateTime)) {
+                break;
+            }
+            solarTerm = solarTerm.roll(2);
+            if (i == 11) year++;
+        }
+        return solarTerm.of(year);
+    }
+
+    public static SolarTerm getNextMajorSolarTerm(LocalDateTime dateTime) {
+        return getLastMajorSolarTerm(dateTime).roll(2);
     }
 }

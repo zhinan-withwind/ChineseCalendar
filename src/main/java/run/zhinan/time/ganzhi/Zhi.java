@@ -1,6 +1,6 @@
 package run.zhinan.time.ganzhi;
 
-public enum EarthlyBranch {
+public enum Zhi {
     ZI  ( 1, "子"),
     CHOU( 2, "丑"),
     YIN ( 3, "寅"),
@@ -17,7 +17,7 @@ public enum EarthlyBranch {
     int value;
     String name;
 
-    EarthlyBranch(int value, String name) {
+    Zhi(int value, String name) {
         this.value = value;
         this.name = name;
     }
@@ -30,7 +30,7 @@ public enum EarthlyBranch {
         return name;
     }
 
-    public static EarthlyBranch getByValue(int value) {
+    public static Zhi getByValue(int value) {
         return values()[value - 1];
     }
 }

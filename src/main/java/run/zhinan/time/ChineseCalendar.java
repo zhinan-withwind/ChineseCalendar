@@ -1,18 +1,24 @@
 package run.zhinan.time;
 
+import run.zhinan.time.ganzhi.GanZhiDateTime;
 import run.zhinan.time.solar.SolarTerm;
 
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class ChineseCalendar {
     public static void main(String[] args) {
+        System.out.println(GanZhiDateTime.of(LocalDateTime.of(1976, 2, 11, 11, 40)));
+    }
+
+    private static void printSolarTermData(int startYear, int endYear) {
         // 打印表头
         System.out.print("年份,");
         SolarTerm.values.forEach(solarTerm -> System.out.print(solarTerm.getName() + ","));
         System.out.println();
 
-        for (int y = 1923; y < 2071; y++) {
+        for (int y = startYear; y < endYear; y++) {
             List<SolarTerm> solarTerms = SolarTerm.getSolarTerms(y);
             StringBuilder sb = new StringBuilder().append(y).append(",");
             solarTerms.forEach(solarTerm -> sb.append(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm").format(solarTerm.getDateTime())).append(","));

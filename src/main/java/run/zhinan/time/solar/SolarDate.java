@@ -1,30 +1,32 @@
-package run.zhinan.time.base;
+package run.zhinan.time.solar;
 
-public class Date {
-    int year;
-    int month;
-    int day;
+import java.time.LocalDate;
 
-    public Date(int year, int month, int day) {
-        this.year = year;
-        this.month = month;
-        this.day = day;
-    }
+public class SolarDate {
+    LocalDate date;
 
-    public static Date of(int year, int month, int day) {
-        return new Date(year, month, day);
+    public SolarDate(LocalDate date) {
+        this.date = date;
     }
 
     public int getYear() {
-        return year;
+        return date.getYear();
     }
 
     public int getMonth() {
-        return month;
+        return date.getMonthValue();
     }
 
     public int getDay() {
-        return day;
+        return date.getDayOfMonth();
+    }
+
+    public static SolarDate of(LocalDate date) {
+        return new SolarDate(date);
+    }
+
+    public static SolarDate of(int year, int month, int day) {
+        return of(LocalDate.of(year, month, day));
     }
 
     public double toJulianDate() {

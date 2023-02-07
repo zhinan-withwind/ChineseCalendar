@@ -1,6 +1,6 @@
 package run.zhinan.time.ganzhi;
 
-public enum HeavenlyStem {
+public enum Gan {
     JIA ( 1, "甲"),
     YI  ( 2, "乙"),
     BING( 3, "丙"),
@@ -15,7 +15,7 @@ public enum HeavenlyStem {
     int value;
     String name;
 
-    HeavenlyStem(int value, String name) {
+    Gan(int value, String name) {
         this.value = value;
         this.name = name;
     }
@@ -28,7 +28,7 @@ public enum HeavenlyStem {
         return name;
     }
 
-    public static HeavenlyStem getByValue(int value) {
+    public static Gan getByValue(int value) {
         return values()[value - 1];
     }
 }

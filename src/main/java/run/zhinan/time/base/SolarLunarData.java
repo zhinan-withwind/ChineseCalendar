@@ -2,10 +2,10 @@ package run.zhinan.time.base;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
+import run.zhinan.time.solar.SolarDate;
 import run.zhinan.time.util.FileUtil;
 
 import java.time.DateTimeException;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -112,7 +112,7 @@ public final class SolarLunarData {
     }
 
     private static List<Integer> decompressSolarData(int y, int start, List<Integer> solarData) {
-        double jd0 = Date.of(y - 1, 12, 31).toJulianDate() - 1.0 / 3;
+        double jd0 = SolarDate.of(y - 1, 12, 31).toJulianDate() - 1.0 / 3;
         double deltaT = deltaT((jd0 - 2451545 + 365.25 * 0.5) / 36525);
         double offset = 2451545 - jd0 - deltaT;
         double[] w = {2 * Math.PI, 6.282886, 12.565772, 0.337563, 83.99505, 77.712164, 5.7533, 3.9301};
@@ -201,7 +201,7 @@ public final class SolarLunarData {
             ph   = new double[] {-2.888275750894949e-05, 0.824846111325144, 1.649741803946661, 1.663775730196169, -0.9078368027144129, -0.2311274511667410,       2.4714245474208, -2.405036659816741, 0.8498606487973193,           -0.8881264552237513, 3.13858712419766, 1.623989809477561,           2.340584258762797, 5.43689811418326e-10, -2.354742450426987,       -1.663903006717207, -0.8390067716987786, -2.82704991559508,         -0.7480552897281627, 0.05087287783658471, 1.570826541508687,       -2.99806369998241, 2.679366682613425, -0.7988224904722718};
         }
 
-        double jd0 = Date.of(y - 1,12,31).toJulianDate() - 1.0 / 3;
+        double jd0 = SolarDate.of(y - 1,12,31).toJulianDate() - 1.0 / 3;
         double deltaT = deltaT((jd0 - 2451545 + 365.25 * 0.5) / 36525);
         double offset = 2451545 - jd0 - deltaT;
         double jdL0 = 2451550.259469 + 0.25 * lunarData.get(0) * 29.5306;

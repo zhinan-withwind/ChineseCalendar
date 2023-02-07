@@ -14,7 +14,7 @@ public interface DateTimeHolder {
     int getMinute();
     boolean isLeap();
     LocalDateTime  toLocalDateTime();
-    SolarDateTime toSolarDateTime();
-    LunarDateTime toLunarDateTime();
+    SolarDateTime  toSolarDateTime();
+    LunarDateTime  toLunarDateTime();
     GanZhiDateTime toGanZhiDateTime();
 }
