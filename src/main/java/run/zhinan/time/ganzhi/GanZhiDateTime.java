@@ -1,82 +1,127 @@
 package run.zhinan.time.ganzhi;
 
+import run.zhinan.time.base.BaseDateTime;
 import run.zhinan.time.base.DateTimeHolder;
 import run.zhinan.time.lunar.LunarDateTime;
-import run.zhinan.time.solar.SolarDate;
 import run.zhinan.time.solar.SolarDateTime;
 import run.zhinan.time.solar.SolarTerm;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.temporal.TemporalAccessor;
+import java.time.temporal.TemporalField;
+import java.util.ArrayList;
+import java.util.List;
 
-public class GanZhiDateTime implements DateTimeHolder {
-    LocalDateTime dateTime;
-
+public class GanZhiDateTime extends BaseDateTime implements DateTimeHolder, TemporalAccessor {
     GanZhi year;
     GanZhi month;
     GanZhi day;
     GanZhi time;
 
-    public GanZhiDateTime(GanZhi year, GanZhi month, GanZhi day, GanZhi time) {
-        this.year = year;
+    private GanZhiDateTime(LocalDateTime dateTime) {
+        super(dateTime);
+        // 第一步：计算年份干支
+        // 如果在立春前，则为上一年
+        LocalDateTime springDay = SolarTerm.J01_LICHUN.of(dateTime.getYear()).getDateTime();
+        int currentYear = dateTime.getYear() - (dateTime.isBefore(springDay) ? 1 : 0);
+        this.year  = GanZhi.toGanZhi(currentYear);
+
+        // 第二步：计算月份干支
+        this.month = GanZhi.toGanZhi(currentYear, SolarTerm.getLastMajorSolarTerm(dateTime).getDateTime().getMonthValue());
+
+        // 计算日期干支
+        this.day   = GanZhi.toGanZhi(dateTime.getYear(), dateTime.getMonthValue(), dateTime.getDayOfMonth());
+
+        // 计算时间干支
+        this.time  = GanZhi.toGanZhi(day, dateTime.getHour());
+    }
+
+    private GanZhiDateTime(GanZhi year, GanZhi month, GanZhi day, GanZhi time) {
+        super(toDateTime(year, month, day, time));
+        this.year  = year;
         this.month = month;
-        this.day = day;
-        this.time = time;
+        this.day   = day;
+        this.time  = time;
     }
 
     public static GanZhiDateTime of(GanZhi year, GanZhi month, GanZhi day, GanZhi time) {
         return new GanZhiDateTime(year, month, day, time);
     }
 
+    public static GanZhiDateTime of(int year, int month, int day, int time) {
+        return of(GanZhi.getByValue(year), GanZhi.getByValue(month), GanZhi.getByValue(day), GanZhi.getByValue(time));
+    }
+
+    // 要区分早晚子时，当天的23点-24点，算当天的日子，第二天的子时
     public static GanZhiDateTime of(LocalDateTime dateTime) {
-        // 第一步：计算年份干支
-        // 如果在立春前，则为上一年
-        LocalDateTime springDay = SolarTerm.J01_LICHUN.of(dateTime.getYear()).getDateTime();
-        int currentYear = dateTime.getYear() - (dateTime.isBefore(springDay) ? 1 : 0);
-        GanZhi year  = toGanZhi(currentYear);
-
-        // 第二步：计算月份干支
-        GanZhi month = toGanZhi(currentYear, SolarTerm.getLastMajorSolarTerm(dateTime).getDateTime().getMonthValue());
-
-        // 计算日期干支
-        GanZhi day   = toGanZhi(dateTime.getYear(), dateTime.getMonthValue(), dateTime.getDayOfMonth());
-
-        // 计算时间干支
-        GanZhi time  = toGanZhi(day, dateTime.getHour());
-
-        GanZhiDateTime ganZhiDateTime = new GanZhiDateTime(year, month, day, time);
-        ganZhiDateTime.dateTime = dateTime;
-
-        return ganZhiDateTime;
+        return new GanZhiDateTime(dateTime);
     }
 
-    public static GanZhi toGanZhi(GanZhi day, int hour) {
-        int dayGanValue = ((day.getGan().getValue() % 5) * 2 + (hour + 1) / 2) % 10 + 1;
-        int dayZhiValue = (hour + 1) / 2 + 1;
-        return GanZhi.of(dayGanValue, dayZhiValue);
+    // 不区分早晚子时，当天的23点-24点，算转天的日子，第二天的子时
+    public static GanZhiDateTime ofNoMidnight(LocalDateTime dateTime) {
+        if (dateTime.getHour() == 23) {
+            dateTime = dateTime.toLocalDate().plusDays(1L).atTime(0, 0);
+        }
+        return of(dateTime);
     }
 
-    public static GanZhi toGanZhi(int year) {
-        int yearGanValue = (year - 3 - 1) % 10 + 1;
-        int yearZhiValue = (year - 3 - 1) % 12 + 1;
-        return GanZhi.of(yearGanValue, yearZhiValue);
+
+    public static List<LocalDateTime> findByGanZhi(int start, int end, GanZhi year, GanZhi month, GanZhi day, GanZhi time) {
+        List<LocalDateTime> result = new ArrayList<>();
+        int startYear = start + (year.getValue() - GanZhi.toGanZhi(start).getValue() + 60) % 60;
+        for (int y = startYear; y < end; y+=60) {
+            int m = (month.getValue() - GanZhi.toGanZhi(y, 1).getValue() + 60) % 60 + 1;
+            if (m <= 12) {
+                LocalDateTime solarTerm = SolarTerm.ofMajor((m - 2 + 12) % 12).of(y).getDateTime();
+                int d = (day.getValue() - GanZhi.toGanZhi(y, m, solarTerm.getDayOfMonth()).getValue() + 60) % 60;
+                int duration = (int) Duration.between(solarTerm, SolarTerm.ofMajor(m - 1).of(y).getDateTime()).getSeconds() / 3600 / 24;
+                if (d < duration) {
+                    LocalDate date = solarTerm.toLocalDate().plusDays(d);
+                    int h = (time.getValue() - GanZhi.toGanZhi(date.getYear(), date.getMonthValue(), date.getDayOfMonth(), 0).getValue() + 60) % 60;
+                    if (h < 12) {
+                        result.add(date.atTime(h * 2, 0));
+                    }
+                }
+            }
+        }
+        return result;
     }
 
-    public static GanZhi toGanZhi(int year, int month) {
-        GanZhi ganZhiYear = toGanZhi(month == 1 ? year - 1 : year);
-        int monthZhiValue = month + 1;
-        int monthGanValue = (ganZhiYear.getGan().getValue() * 2 + (monthZhiValue - 3 + 12) % 12) % 10 + 1;
-        return GanZhi.of(monthGanValue, monthZhiValue);
+    public static LocalDateTime toDateTime(GanZhi year, GanZhi month, GanZhi day, GanZhi time) {
+        LocalDateTime result = null;
+        LocalDateTime now = LocalDateTime.now();
+        List<LocalDateTime> dateTimeList = findByGanZhi(now.getYear() - 100, now.getYear() + 100, year, month, day, time);
+        long duration = 101 * 365 * 24 * 3600L;
+        for (LocalDateTime dateTime : dateTimeList) {
+            if (dateTime.isAfter(now) && result != null) {
+                break;
+            } else {
+                long d = Math.abs(Duration.between(dateTime, now).getSeconds());
+                if (d < duration) {
+                    result = dateTime;
+                    duration = d;
+                }
+            }
+        }
+        return result;
     }
 
-    public static GanZhi toGanZhi(int year, int month, int day) {
-        LocalDate date = LocalDate.of(year, month, day);
-        int julianDate = new Double(SolarDate.of(date).toJulianDate()).intValue() + 1;
-        return GanZhi.of((julianDate - 1) % 10 + 1, (julianDate + 1) % 12 + 1);
+    public GanZhi getGanZhiYear() {
+        return year;
     }
 
-    public static GanZhi toGanZhi(int year, int month, int day, int time) {
-        return toGanZhi(toGanZhi(year, month, day), time);
+    public GanZhi getGanZhiMonth() {
+        return month;
+    }
+
+    public GanZhi getGanZhiDay() {
+        return day;
+    }
+
+    public GanZhi getGanZhiTime() {
+        return time;
     }
 
     @Override
@@ -93,6 +138,8 @@ public class GanZhiDateTime implements DateTimeHolder {
     public int getDay() {
         return day.getValue();
     }
+
+    public int getTime() { return time.getValue(); }
 
     @Override
     public int getHour() {
@@ -131,6 +178,16 @@ public class GanZhiDateTime implements DateTimeHolder {
 
     @Override
     public String toString() {
-        return "" + year + month + day + time;
+        return year.toString() + month + day + time;
+    }
+
+    @Override
+    public boolean isSupported(TemporalField field) {
+        return true;
+    }
+
+    @Override
+    public long getLong(TemporalField field) {
+        return toLocalDateTime().get(field);
     }
 }

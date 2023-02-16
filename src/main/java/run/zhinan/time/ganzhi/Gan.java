@@ -1,5 +1,7 @@
 package run.zhinan.time.ganzhi;
 
+import run.zhinan.time.format.CHINESE_NUMBER;
+
 public enum Gan {
     JIA ( 1, "甲"),
     YI  ( 2, "乙"),
@@ -30,5 +32,16 @@ public enum Gan {
 
     public static Gan getByValue(int value) {
         return values()[value - 1];
+    }
+
+    public static Gan getByName(String name) {
+        Gan result = null;
+        for (Gan g : values()) {
+            if (g.name.equals(name)) {
+                result = g;
+                break;
+            }
+        }
+        return result;
     }
 }

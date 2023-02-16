@@ -1,15 +1,17 @@
 package run.zhinan.time;
 
-import run.zhinan.time.ganzhi.GanZhiDateTime;
+import com.alibaba.fastjson.JSON;
+import run.zhinan.time.lunar.LunarTerm;
+import run.zhinan.time.lunar.LunarYear;
 import run.zhinan.time.solar.SolarTerm;
 
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class ChineseCalendar {
     public static void main(String[] args) {
-        System.out.println(GanZhiDateTime.of(LocalDateTime.of(1976, 2, 11, 11, 40)));
+        System.out.println(JSON.toJSONString(LunarYear.of(2023)));
+
     }
 
     private static void printSolarTermData(int startYear, int endYear) {

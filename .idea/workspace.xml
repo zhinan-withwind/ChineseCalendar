@@ -9,24 +9,245 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8f729a4-272c-4389-b1a2-f20ff1d82f7f" name="Changes" comment="增加了干支模块">
-      <change afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/Xun.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/solar/SolarDate.java" afterDir="false" />
+    <list default="true" id="b8f729a4-272c-4389-b1a2-f20ff1d82f7f" name="Changes" comment="完成了阴历的日期格式化">
+      <change afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/base/BaseDate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/base/BaseYear.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/chrono/ChineseChronology.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/format/BaseDateTimeParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/format/CHINESE_NUMBER.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/format/DATE_NAME.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/format/DateTimeParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/format/DiZhiTimeParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/format/LunarDateParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/format/LunarDateTimeParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/format/MONTH_NAME.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/format/NumberStyle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/GanZhiDate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/GanZhiYear.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/lunar/LunarDate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/lunar/LunarMonth.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/lunar/LunarYear.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/GanZhiTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/LunarTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/SolarTermTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/1899-1909.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/testData.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1900.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1901.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1902.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1903.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1904.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1905.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1906.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1907.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1908.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1909.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1910.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1911.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1912.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1913.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1914.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1915.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1916.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1917.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1918.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1919.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1920.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1921.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1922.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1923.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1924.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1925.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1926.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1927.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1928.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1929.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1930.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1931.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1932.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1933.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1934.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1935.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1936.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1937.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1938.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1939.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1940.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1941.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1942.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1943.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1944.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1945.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1946.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1947.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1948.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1949.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1950.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1951.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1952.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1953.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1954.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1955.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1956.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1957.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1958.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1959.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1960.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1961.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1962.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1963.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1964.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1965.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1966.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1967.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1968.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1969.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1970.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1971.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1972.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1973.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1974.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1975.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1976.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1977.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1978.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1979.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1980.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1981.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1982.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1983.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1984.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1985.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1986.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1987.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1988.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1989.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1990.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1991.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1992.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1993.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1994.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1995.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1996.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1997.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1998.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/1999.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2000.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2001.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2002.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2003.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2004.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2005.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2006.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2007.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2008.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2009.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2010.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2011.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2012.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2013.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2014.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2015.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2016.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2017.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2018.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2019.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2020.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2021.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2022.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2023.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2024.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2025.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2026.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2027.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2028.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2029.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2030.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2031.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2032.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2033.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2034.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2035.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2036.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2037.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2038.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2039.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2040.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2041.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2042.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2043.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2044.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2045.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2046.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2047.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2048.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2049.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2050.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2051.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2052.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2053.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2054.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2055.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2056.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2057.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2058.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2059.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2060.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2061.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2062.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2063.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2064.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2065.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2066.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2067.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2068.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2069.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2070.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2071.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2072.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2073.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2074.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2075.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2076.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2077.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2078.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2079.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2080.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2081.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2082.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2083.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2084.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2085.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2086.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2087.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2088.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2089.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2090.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2091.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2092.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2093.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2094.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2095.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2096.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2097.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2098.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/wenzhen/2099.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ChineseCalendar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ChineseCalendar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/base/BaseDateTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/base/BaseDateTime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/base/Date.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/base/DateTimeHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/base/DateTimeHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/base/SolarLunarData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/base/SolarLunarData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/base/Time.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/EarthlyBranch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/Zhi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/Gan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/Gan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/GanZhi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/GanZhi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/GanZhiDateTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/GanZhiDateTime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/HeavenlyStem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/Gan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/Zhi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/Zhi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/lunar/LunarDateTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/lunar/LunarDateTime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/lunar/LunarTerm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/lunar/LunarTerm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/solar/Day.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/solar/Day.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/solar/Month.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/solar/SolarMonth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/solar/SolarDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/solar/SolarDate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/solar/SolarDateTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/solar/SolarDateTime.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/solar/SolarTerm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/solar/SolarTerm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/solar/Year.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/solar/SolarYear.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +274,22 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/GanZhiDateTime.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/run/zhinan/time/lunar/LunarDate.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/run/zhinan/time/lunar/LunarDateTime.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/run/zhinan/time/format/LunarDateParser.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/test/java/SolarTermTest.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/run/zhinan/time/base/BaseDate.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/run/zhinan/time/base/BaseYear.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/test/java/LunarTest.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/run/zhinan/time/format/DiZhiTimeParser.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/run/zhinan/time/solar/SolarTerm.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/run/zhinan/time/format/LunarDateTimeParser.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/run/zhinan/time/format/BaseDateTimeParser.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/run/zhinan/time/solar/SolarYear.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -76,7 +313,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/data" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/resources/data/wenzhen" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
@@ -86,9 +323,12 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/resources/data/wenzhen" />
+      <recent name="$PROJECT_DIR$/src/test/resources/data" />
       <recent name="$PROJECT_DIR$/src/main/resources/data" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="run.zhinan.time.format" />
       <recent name="com.zhinan.time.base" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -102,7 +342,7 @@
       <command value="mvn --version" />
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.SolarTermTest">
     <configuration name="ChineseCalendar" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -112,6 +352,40 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GanZhiTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ChineseCalendar" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GanZhiTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LunarTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ChineseCalendar" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LunarTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SolarTermTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ChineseCalendar" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SolarTermTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.SolarTermTest" />
+        <item itemvalue="JUnit.LunarTest" />
+        <item itemvalue="JUnit.GanZhiTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -127,7 +401,8 @@
       <workItem from="1675156779128" duration="2026000" />
       <workItem from="1675158856051" duration="255000" />
       <workItem from="1675159132941" duration="4150000" />
-      <workItem from="1675751422273" duration="15803000" />
+      <workItem from="1675751422273" duration="134405000" />
+      <workItem from="1676510844220" duration="2334000" />
     </task>
     <task id="LOCAL-00001" summary="初始提交，已完成节气计算部分">
       <created>1675071678443</created>
@@ -150,7 +425,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675757535682</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="完成了干支历的计算部分">
+      <created>1675770200767</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1675770200767</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,6 +455,8 @@
     <MESSAGE value="初始提交，已完成节气计算部分" />
     <MESSAGE value="修改了包名，从com.zhinan改为run.zhinan" />
     <MESSAGE value="增加了干支模块" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加了干支模块" />
+    <MESSAGE value="完成了干支历的计算部分" />
+    <MESSAGE value="完成了阴历的日期格式化" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成了阴历的日期格式化" />
   </component>
 </project>

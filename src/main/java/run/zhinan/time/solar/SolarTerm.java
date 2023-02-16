@@ -56,12 +56,20 @@ public final class SolarTerm {
         List<Integer> data = SolarLunarData.getSolarData(year);
         int index = getValue() - 1 + 3;
         if (index < 24) {
-            solarTerm.dateTime = Year.of(year).atMinute(data.get(index));
+            solarTerm.dateTime = SolarYear.of(year).atMinute(data.get(index));
         } else {
             List<Integer> dataOfNextYear = SolarLunarData.getSolarData(year + 1);
-            solarTerm.dateTime = Year.of(year + 1).atMinute(dataOfNextYear.get(index - 24));
+            solarTerm.dateTime = SolarYear.of(year + 1).atMinute(dataOfNextYear.get(index - 24));
         }
         return solarTerm;
+    }
+
+    public static SolarTerm ofMajor(int index) {
+        return values.get(index * 2);
+    }
+
+    public static SolarTerm ofMinor(int index) {
+        return values.get(index * 2 + 1);
     }
 
     public static List<SolarTerm> getSolarTerms(int year) {
@@ -79,7 +87,19 @@ public final class SolarTerm {
     }
 
     public SolarTerm roll(int i) {
-        return values.get((getValue() - 1 + i) % 24);
+        int index = getValue() - 1 + i;
+        int year  = this.year;
+        if (index >= 24) {
+            int offset = index / 24;
+            year += offset;
+            index = index % 24;
+        }
+        if (index < 0) {
+            int offset = 1 - (index + 1) / 24;
+            index = (index + offset * 24) % 24;
+            year -= offset;
+        }
+        return values.get(index % 24).of(year);
     }
 
     private static int getSolarTermYear(LocalDateTime dateTime) {

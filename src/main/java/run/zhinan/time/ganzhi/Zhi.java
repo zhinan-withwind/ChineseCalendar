@@ -1,5 +1,7 @@
 package run.zhinan.time.ganzhi;
 
+import run.zhinan.time.format.MONTH_NAME;
+
 public enum Zhi {
     ZI  ( 1, "子"),
     CHOU( 2, "丑"),
@@ -32,5 +34,16 @@ public enum Zhi {
 
     public static Zhi getByValue(int value) {
         return values()[value - 1];
+    }
+
+    public static Zhi getByName(String name) {
+        Zhi result = null;
+        for (Zhi z : values()) {
+            if (z.name.equals(name)) {
+                result = z;
+                break;
+            }
+        }
+        return result;
     }
 }

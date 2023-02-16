@@ -1,13 +1,13 @@
 package run.zhinan.time.solar;
 
 public class Day {
-    private final Year  year;
-    private final Month month;
+    private final SolarYear year;
+    private final SolarMonth month;
     private final int value;
 
     public Day(int year, int month, int value) {
-        this.year  = Year.of(year);
-        this.month = Month.of(month).at(year);
+        this.year  = SolarYear.of(year);
+        this.month = SolarMonth.of(month, year);
         this.value = value;
     }
 

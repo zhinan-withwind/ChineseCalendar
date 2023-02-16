@@ -6,7 +6,7 @@
 
     <groupId>run.zhinan</groupId>
     <artifactId>ChineseCalendar</artifactId>
-    <version>1.0</version>
+    <version>1.0.5-SNAPSHOT</version>
 
     <!--项目信息...-->
     <name>Chinese Calendar</name>
@@ -45,8 +45,8 @@
     <profiles>
         <profile>
             <!--注意,此id必须与setting.xml中指定的一致,不要自作聪明改它名字-->
-<!--            <id>ossrh</id>-->
-            <id>release</id>
+            <id>ossrh</id>
+<!--            <id>release</id>-->
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
@@ -149,6 +149,7 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
@@ -156,6 +157,12 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>2.0.7.graal</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
