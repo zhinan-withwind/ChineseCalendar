@@ -26,7 +26,9 @@ public class BaseDateTimeParser {
 
     String formatNumber(int n, int width) {
         String result;
-        for (result = String.valueOf(n); result.length() < width; result = "0" + result);
+        for(result = String.valueOf(n); result.length() < width; ) {
+            result = "0" + result;
+        }
         return result;
     }
 }
