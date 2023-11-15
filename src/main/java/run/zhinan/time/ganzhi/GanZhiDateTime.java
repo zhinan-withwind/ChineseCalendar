@@ -20,25 +20,22 @@ public class GanZhiDateTime extends BaseDateTime implements DateTimeHolder, Temp
     GanZhi day;
     GanZhi time;
 
-    private GanZhiDateTime(LocalDateTime dateTime) {
-        super(dateTime);
-        // 第一步：计算年份干支
-        // 如果在立春前，则为上一年
-        LocalDateTime springDay = SolarTerm.J01_LICHUN.of(dateTime.getYear()).getDateTime();
-        int currentYear = dateTime.getYear() - (dateTime.isBefore(springDay) ? 1 : 0);
-        this.year  = GanZhi.toGanZhi(currentYear);
-
-        // 第二步：计算月份干支
-        this.month = GanZhi.toGanZhi(currentYear, SolarTerm.getLastMajorSolarTerm(dateTime).getDateTime().getMonthValue());
-
-        // 计算日期干支
-        this.day   = GanZhi.toGanZhi(dateTime.getYear(), dateTime.getMonthValue(), dateTime.getDayOfMonth());
-
-        // 计算时间干支
-        this.time  = GanZhi.toGanZhi(day, dateTime.getHour());
+    GanZhiDateTime(LocalDateTime dateTime) {
+        this(GanZhiDate.of(dateTime.toLocalDate()), dateTime.getHour());
+        this.dateTime = dateTime;
     }
 
-    private GanZhiDateTime(GanZhi year, GanZhi month, GanZhi day, GanZhi time) {
+    GanZhiDateTime(GanZhiDate ganZhiDate, int hour) {
+        super(ganZhiDate.toLocalDate().atTime(hour, 0));
+        this.year  = ganZhiDate.year;
+        this.month = ganZhiDate.month;
+        this.day   =ganZhiDate.day;
+
+        // 计算时间干支
+        this.time  = GanZhi.toGanZhi(day, hour);
+    }
+
+    GanZhiDateTime(GanZhi year, GanZhi month, GanZhi day, GanZhi time) {
         super(toDateTime(year, month, day, time));
         this.year  = year;
         this.month = month;

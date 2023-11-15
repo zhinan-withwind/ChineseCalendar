@@ -2,17 +2,18 @@ package run.zhinan.time.ganzhi;
 
 public class GanZhiYear extends GanZhi {
     int year;
-    int cycle;
 
-    public GanZhiYear(Gan gan, Zhi zhi) {
+    private GanZhiYear(Gan gan, Zhi zhi) {
         super(gan, zhi);
     }
 
-    public GanZhiYear(GanZhi ganZhi) {
-        super(ganZhi.gan, ganZhi.zhi);
+    private GanZhiYear(GanZhi ganZhi) {
+        this(ganZhi.gan, ganZhi.zhi);
     }
 
     public static GanZhiYear of(int year) {
-        return new GanZhiYear(toGanZhi(year));
+        GanZhiYear ganZhiYear = new GanZhiYear(toGanZhi(year));
+        ganZhiYear.year = year;
+        return ganZhiYear;
     }
 }

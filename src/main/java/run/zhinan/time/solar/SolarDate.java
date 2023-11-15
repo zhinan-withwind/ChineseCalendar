@@ -1,14 +1,14 @@
 package run.zhinan.time.solar;
 
+import run.zhinan.time.base.BaseDate;
+
 import java.time.LocalDate;
 import java.time.temporal.TemporalAccessor;
 import java.time.temporal.TemporalField;
 
-public class SolarDate implements TemporalAccessor {
-    LocalDate date;
-
+public class SolarDate extends BaseDate implements TemporalAccessor {
     public SolarDate(LocalDate date) {
-        this.date = date;
+        super(date);
     }
 
     public static SolarDate of(LocalDate date) {
@@ -20,15 +20,15 @@ public class SolarDate implements TemporalAccessor {
     }
 
     public int getYear() {
-        return date.getYear();
+        return toLocalDate().getYear();
     }
 
     public int getMonth() {
-        return date.getMonthValue();
+        return toLocalDate().getMonthValue();
     }
 
     public int getDay() {
-        return date.getDayOfMonth();
+        return toLocalDate().getDayOfMonth();
     }
 
     public double toJulianDate() {
@@ -52,11 +52,7 @@ public class SolarDate implements TemporalAccessor {
     }
 
     public SolarDateTime atTime(int hour, int minute) {
-        return SolarDateTime.of(date.atTime(hour, minute));
-    }
-
-    public LocalDate toLocalDate() {
-        return date;
+        return SolarDateTime.of(toLocalDate().atTime(hour, minute));
     }
 
     @Override
@@ -67,5 +63,15 @@ public class SolarDate implements TemporalAccessor {
     @Override
     public long getLong(TemporalField field) {
         return toLocalDate().getLong(field);
+    }
+
+    @Override
+    public String toString() {
+        return date.toString();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof SolarDate && date.equals(((SolarDate) obj).date);
     }
 }

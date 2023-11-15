@@ -40,6 +40,7 @@ public class LunarDateParser extends BaseDateTimeParser implements DateTimeParse
     public LunarDate parse(String dateString) {
         String[] fieldStrings = getFieldStrings(dateString);
         int year, month, day;
+        boolean leap = false;
         switch (numberStyle) {
             case ARABIC:
                 year  = Integer.parseInt(fieldStrings[0]);
@@ -55,6 +56,7 @@ public class LunarDateParser extends BaseDateTimeParser implements DateTimeParse
                     month += (lunarYear.isLeap() && lunarYear.getLeapMonth() < month ? 1 : 0);
                 } else {
                     month = MONTH_NAME.getByName(monthString.substring(1, 2)).getValue() + 1;
+                    leap = true;
                 }
                 day = DATE_NAME.getByName(dateString.substring(7, 9)).getValue();
                 break;
@@ -62,7 +64,7 @@ public class LunarDateParser extends BaseDateTimeParser implements DateTimeParse
             default:
                 return null;
         }
-        return LunarDate.of(year, month, day);
+        return LunarDate.of(year, month, day, leap);
     }
 
     @Override

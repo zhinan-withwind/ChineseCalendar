@@ -21,7 +21,7 @@ public class SolarDateTime extends BaseDateTime implements DateTimeHolder, Tempo
         this.dateTime = dateTime;
 
         this.year   = SolarYear.of(dateTime.getYear());
-        this.month  = SolarMonth.of(dateTime.getMonthValue(), dateTime.getYear());
+        this.month  = SolarMonth.of(dateTime.getYear(), dateTime.getMonthValue());
         this.day    = Day  .of(dateTime.getYear(), dateTime.getMonthValue(), dateTime.getDayOfMonth());
         this.hour   = dateTime.getHour();
         this.minute = dateTime.getMinute();
@@ -93,5 +93,15 @@ public class SolarDateTime extends BaseDateTime implements DateTimeHolder, Tempo
     @Override
     public long getLong(TemporalField field) {
         return toLocalDateTime().get(field);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof SolarDateTime && dateTime.equals(((SolarDateTime) obj).dateTime);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

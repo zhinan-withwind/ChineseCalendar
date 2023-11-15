@@ -9,47 +9,72 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class LunarMonth {
-    LocalDate startDate;
-    LocalDate endDate;
+    LocalDateTime startTime;
+    LocalDateTime endTime;
 
-    int year;
-    int value;
-    int dayNum;
-    boolean leap;
+    Integer year;
+    Integer value;
+    Integer index;
+    Integer dayNum;
+    Boolean leap;
 
-    public LunarMonth(int year, int month, LocalDate startDate, LocalDate endDate) {
-        this.year       = year;
-        this.startDate  = startDate;
-        this.endDate    = endDate;
-        this.value      = month;
-        this.dayNum     = new Long(Duration.between(
-                startDate.atTime(0, 0), endDate.atTime(23, 59)).toDays()).intValue() + 1;
+    LunarMonth(int year, int value, int index, LocalDateTime startTime, LocalDateTime endTime, boolean isLeap) {
+        this.year      = year;
+        this.value     = value;
+        this.index     = index;
 
-        if (LunarYear.isLeap(year)) {
-            // 计算是否为闰月，如果一个月不包含中气，则为闰月
-            SolarTerm minorTerm = SolarTerm.ofMinor(1).of(year);
-            boolean contained = false;
-            LocalDateTime startTime = getStartTime();
-            LocalDateTime endTime = getEndTime();
-            while (!minorTerm.getDateTime().isAfter(endTime)) {
-                if (!minorTerm.getDateTime().isBefore(startTime)) {
-                    contained = true;
-                    break;
-                }
-                minorTerm = minorTerm.roll(2);
-            }
-            leap = !contained;
-        } else {
-            leap = false;
-        }
+        this.startTime = startTime;
+        this.endTime   = endTime;
+        this.dayNum    = new Long(Duration.between(startTime, endTime).toDays()).intValue() + 1;
+
+        this.leap      = isLeap;
     }
 
-    public static LunarMonth of(int year, int month) {
+    public static LunarMonth of(int year, int value, int index, LunarTerm lunarTerm) {
+        LocalDateTime startTime = lunarTerm.getDate().atTime(0, 0);
+        LocalDateTime endTime   = lunarTerm.roll(1).getDate().atTime(0, 0).minusSeconds(1);
+        return new LunarMonth(year, value, index, startTime, endTime, isLeap(year, startTime, endTime));
+    }
+
+    public static LunarMonth of(int year, int index) {
+        return LunarYear.of(year).getMonths().get(index - 1);
+    }
+
+    public static LunarMonth of(int year, int month, boolean leap) {
+        LunarYear lunarYear = LunarYear.of(year);
+        int index = month + (leap ? 1 : 0) + (month >= lunarYear.getLeapMonth() ? 1 : 0);
+        return lunarYear.getMonths().get(index - 1);
+    }
+
+    public static LunarTerm getLastNovember(int year) {
         LocalDateTime lastWinterDay = SolarTerm.Z11_DONGZHI.of(year - 1).getDateTime();
-        LunarTerm     lastNovember  = LunarTerm.lastNewMoon(lastWinterDay);
-        LocalDate     startDate = lastNovember.roll(month).getDate();
-        LocalDate     endDate   = lastNovember.roll(month + 1).getDate().minusDays(-1);
-        return new LunarMonth(year, month, startDate, endDate);
+        return LunarTerm.lastNewMoon(lastWinterDay);
+    }
+
+    public static LocalDateTime getStartTime(int year, int index) {
+        return getLastNovember(year).roll(index + 1).getDate().atTime(0, 0);
+    }
+
+    public static LocalDateTime getEndTime(int year, int index) {
+        return getStartTime(year, index + 1).minusSeconds(1);
+    }
+
+    public static boolean isLeap(int year, LocalDateTime startTime, LocalDateTime endTime) {
+        // 计算是否为闰月，如果一个月不包含中气，则为闰月
+        SolarTerm minorTerm = SolarTerm.ofMinor(0).of(year);
+        boolean contained = false;
+        while (!minorTerm.getDateTime().isAfter(endTime)) {
+            if (!minorTerm.getDateTime().isBefore(startTime)) {
+                contained = true;
+                break;
+            }
+            minorTerm = minorTerm.roll(2);
+        }
+        return !contained;
+    }
+
+    public boolean isLeap() {
+        return leap;
     }
 
     public boolean contains(LocalDateTime dateTime) {
@@ -60,25 +85,29 @@ public class LunarMonth {
         return year;
     }
 
+    public int getIndex() {
+        return index;
+    }
+
     @JSONField(serialize = false)
     public LunarYear getLunarYear() {
-        return LunarYear.of(year);
+        return LunarYear.of(this.year);
     }
 
     public LocalDate getStartDate() {
-        return startDate;
+        return startTime.toLocalDate();
     }
 
     public LocalDateTime getStartTime() {
-        return startDate.atTime(0, 0);
+        return getStartDate().atTime(0, 0);
     }
 
     public LocalDate getEndDate() {
-        return endDate;
+        return endTime.toLocalDate();
     }
 
     public LocalDateTime getEndTime() {
-        return endDate.atTime(23, 59, 59, 999999999);
+        return getEndDate().atTime(23, 59, 59, 999999999);
     }
 
     public int getValue() {
@@ -89,22 +118,8 @@ public class LunarMonth {
         return dayNum;
     }
 
-    public boolean isLeap() {
-        return leap;
-    }
-
     public String getName() {
-        String name = "";
-        int m = value;
-        LunarYear lunarYear = getLunarYear();
-        if (lunarYear.isLeap()) {
-            if (m == lunarYear.getLeapMonth()) {
-                name += "闰";
-            }
-            m = m < lunarYear.getLeapMonth() ? m : m - 1;
-        }
-        name += MONTH_NAME.getNameByValue(m) + "月";
-        return name;
+        return  (isLeap() ? "闰" : "") + MONTH_NAME.getNameByValue(value) + "月";
     }
 
     @Override

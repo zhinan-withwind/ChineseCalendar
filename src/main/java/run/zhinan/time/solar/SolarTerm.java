@@ -2,6 +2,7 @@ package run.zhinan.time.solar;
 
 import run.zhinan.time.base.SolarLunarData;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -84,6 +85,10 @@ public final class SolarTerm {
 
     public LocalDateTime getDateTime() {
         return dateTime;
+    }
+
+    public LocalDate getDate() {
+        return dateTime.toLocalDate();
     }
 
     public SolarTerm roll(int i) {

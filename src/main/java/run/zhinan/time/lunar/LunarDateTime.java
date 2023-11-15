@@ -4,10 +4,8 @@ import run.zhinan.time.base.BaseDateTime;
 import run.zhinan.time.base.DateTimeHolder;
 import run.zhinan.time.format.LunarDateTimeParser;
 import run.zhinan.time.ganzhi.GanZhiDateTime;
-import run.zhinan.time.ganzhi.Zhi;
 import run.zhinan.time.solar.SolarDateTime;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.TemporalAccessor;
 import java.time.temporal.TemporalField;
@@ -18,30 +16,32 @@ public class LunarDateTime extends BaseDateTime implements DateTimeHolder, Tempo
     int month;
     int day;
     int time;
+    LunarDate lunarDate;
 
-    LunarDateTime(LocalDateTime dateTime, int year, int month, int day, int time) {
-        super(dateTime);
-        this.year = year;
+    LunarDateTime(int year, int month, int day, int time, boolean isLeap) {
+        this.year  = year;
         this.month = month;
-        this.day = day;
-        this.time = time;
+        this.day   = day;
+        this.time  = time;
+        this.lunarDate = LunarDate.of(year, month, day, isLeap);
+        this.dateTime  = lunarDate.toLocalDate().atTime(time * 2, 0);
     }
 
     LunarDateTime(LocalDateTime dateTime) {
         super(dateTime);
-        LunarDate lunarDate = LunarDate.of(dateTime.toLocalDate());
-        this.year = lunarDate.year;
-        this.month = lunarDate.month;
-        this.day = lunarDate.day;
-        this.time = dateTime.getHour() / 2;
+        this.lunarDate = LunarDate.of(dateTime.toLocalDate());
+        this.year  = this.lunarDate.year;
+        this.month = this.lunarDate.month;
+        this.day   = this.lunarDate.day;
+        this.time  = (dateTime.getHour() + 1) / 2 % 12;
     }
 
     public static LunarDateTime of(LocalDateTime dateTime) {
         return new LunarDateTime(dateTime);
     }
 
-    public static LunarDateTime of(int year, int month, int day, int hour) {
-        return LunarDate.of(year, month, day).atTime(hour);
+    public static LunarDateTime of(int year, int month, int day, int hour, boolean isLeap) {
+        return new LunarDateTime(year, month, day, hour, isLeap);
     }
 
     public int getTime() {
@@ -65,17 +65,17 @@ public class LunarDateTime extends BaseDateTime implements DateTimeHolder, Tempo
 
     @Override
     public int getHour() {
-        return time * 2;
+        return dateTime.getHour();
     }
 
     @Override
     public int getMinute() {
-        return 0;
+        return dateTime.getMinute();
     }
 
     @Override
     public boolean isLeap() {
-        return LunarYear.isLeap(year);
+        return lunarDate.getLunarMonth().isLeap();
     }
 
     @Override
@@ -99,7 +99,7 @@ public class LunarDateTime extends BaseDateTime implements DateTimeHolder, Tempo
     }
 
     public LunarDate toLunarDate() {
-        return new LunarDate(dateTime.toLocalDate(), year, month, day);
+        return lunarDate;
     }
 
     @Override

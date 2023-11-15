@@ -7,7 +7,7 @@ public class Day {
 
     public Day(int year, int month, int value) {
         this.year  = SolarYear.of(year);
-        this.month = SolarMonth.of(month, year);
+        this.month = SolarMonth.of(year, month);
         this.value = value;
     }
 

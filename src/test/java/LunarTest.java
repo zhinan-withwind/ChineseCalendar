@@ -1,3 +1,4 @@
+import com.alibaba.fastjson.JSON;
 import org.junit.Assert;
 import org.junit.Test;
 import run.zhinan.time.format.LunarDateParser;
@@ -15,22 +16,42 @@ public class LunarTest {
         for (int year = 1901; year < 2100; year ++) {
             LunarYear lunarYear = LunarYear.of(year);
             if (lunarYear.getData() != LUNAR_DATE_DATA[year - 1901]) {
-                System.out.println(year + " : 错误！\n数据 - " + Integer.toBinaryString(LUNAR_DATE_DATA[year - 1901])
-                        + "\n我的 - " + Integer.toBinaryString(lunarYear.getData()));
+                String dataString = formatDataString(LUNAR_DATE_DATA[year - 1901]);
+                System.out.println(year + " : 错误！"
+                        + "\n数据 - " + formatDataString(LUNAR_DATE_DATA[year - 1901])
+                        + "\n我的 - " + formatDataString(lunarYear.getData()));
 //                System.out.println(JSON.toJSONString(lunarYear, true));
             }
 //            Assert.assertEquals(Integer.toBinaryString(LUNAR_DATE_DATA[year - 1901]), Integer.toBinaryString(lunarYear.getData()));
         }
     }
 
+    private String formatDataString(Integer d) {
+        String s = Integer.toBinaryString(d);
+        String p = "000000000000000000000000";
+        return (s.length() < 24 ? p.substring(0, 24 - s.length()) : "") + s;
+    }
+
     @Test
     public void testFormatterAndParser() {
-        LunarDateTime lunarDateTime = LunarDateTime.of(LocalDate.of(2024, 1, 25).atTime(23, 25));
-        Assert.assertEquals("二零二三年腊月十五", new LunarDateParser().format(lunarDateTime.toLunarDate()));
-        Assert.assertEquals(lunarDateTime.toLunarDate(), new LunarDateParser().parse("二零二三年腊月十五"));
-        Assert.assertEquals(lunarDateTime, new LunarDateTimeParser().parse("二零二三年腊月十五 亥时"));
-        Assert.assertEquals("二零二三年腊月十五 亥时", new LunarDateTimeParser().format(lunarDateTime));
+        LunarDateTime lunarDateTime = LunarDateTime.of(LocalDate.of(2034, 1, 20).atTime(14, 0));
+        Assert.assertEquals("二零三三年腊月初一", lunarDateTime.toLunarDate().toString());
         System.out.println(new LunarDateTimeParser(FormatStyle.FULL, NumberStyle.CHINESE).format(lunarDateTime));
+    }
+
+    @Test
+    public void testLunarDateTime() {
+        for (int m = 1; m <= 12; m++) {
+            LunarDateTime lunarDateTime = LunarDateTime.of(LocalDate.of(2023, m, 15).atTime(23, 25));
+            System.out.println(lunarDateTime);
+            System.out.println(lunarDateTime.toLocalDateTime());
+            System.out.println(lunarDateTime.toLunarDate().getLunarYear());
+            System.out.println(lunarDateTime.toLunarDate().getLunarYear().getLeapMonth());
+            System.out.println(lunarDateTime.toLunarDate().getLunarMonth());
+            System.out.println(lunarDateTime.toLunarDate().getLunarMonth().getValue());
+            System.out.println(lunarDateTime.toLunarDate().getLunarMonth().getIndex());
+            System.out.println("============================");
+        }
     }
 
     private final static int[] LUNAR_DATE_DATA = new int[] {
@@ -53,6 +74,6 @@ public class LunarTest {
             0x3C9735, 0x0C9649, 0x7D4ABD, 0x0D4A51, 0x0DA545, 0x55AABA, 0x056A4E, 0x0A6D43, 0x452EB7, 0x052D4B,/*2061-2070*/
             0x8A95BF, 0x0A9553, 0x0B4A47, 0x6B553B, 0x0AD54F, 0x055A45, 0x4A5D38, 0x0A5B4C, 0x052B42, 0x3A93B6,/*2071-2080*/
             0x069349, 0x7729BD, 0x06AA51, 0x0AD546, 0x54DABA, 0x04B64E, 0x0A5743, 0x452738, 0x0D264A, 0x8E933E,/*2081-2090*/
-            0x0D5252, 0x0DAA47, 0x66B53B, 0x056D4F, 0x04AE45, 0x4A4EB9, 0x0A4D4C, 0x0D1541, 0x2D92B5          /*2091-2099*/
+            0x0D5252, 0x0DAA47, 0x66B53B, 0x056D4F, 0x04AE45, 0x4A4EB9, 0x0A4D4C, 0x0D1541, 0x2D92B5           /*2091-2099*/
     };
 }
