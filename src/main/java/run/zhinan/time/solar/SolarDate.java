@@ -1,12 +1,14 @@
 package run.zhinan.time.solar;
 
 import run.zhinan.time.base.BaseDate;
+import run.zhinan.time.base.DateHolder;
+import run.zhinan.time.format.SolarDateParser;
 
 import java.time.LocalDate;
 import java.time.temporal.TemporalAccessor;
 import java.time.temporal.TemporalField;
 
-public class SolarDate extends BaseDate implements TemporalAccessor {
+public class SolarDate extends BaseDate implements TemporalAccessor, DateHolder {
     public SolarDate(LocalDate date) {
         super(date);
     }
@@ -29,6 +31,11 @@ public class SolarDate extends BaseDate implements TemporalAccessor {
 
     public int getDay() {
         return toLocalDate().getDayOfMonth();
+    }
+
+    @Override
+    public boolean isLeap() {
+        return false;
     }
 
     public double toJulianDate() {
@@ -67,7 +74,7 @@ public class SolarDate extends BaseDate implements TemporalAccessor {
 
     @Override
     public String toString() {
-        return date.toString();
+        return SolarDateParser.DEFAULT.format(this);
     }
 
     @Override

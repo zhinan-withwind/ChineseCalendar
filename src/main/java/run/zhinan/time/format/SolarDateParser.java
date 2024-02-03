@@ -8,9 +8,10 @@ import java.time.format.FormatStyle;
 
 public class SolarDateParser extends BaseDateTimeParser implements DateTimeParser<SolarDate> {
     private final static DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    public  final static SolarDateParser DEFAULT = new SolarDateParser();
 
     public SolarDateParser() {
-        super(FormatStyle.FULL, NumberStyle.ARABIC);
+        this(FormatStyle.FULL, NumberStyle.ARABIC);
     }
 
     public SolarDateParser(FormatStyle formatStyle, NumberStyle numberStyle) {

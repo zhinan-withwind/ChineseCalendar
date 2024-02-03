@@ -47,7 +47,7 @@
         <repository>
             <id>local-nexus</id>
             <name>local-nexus</name>
-            <url>http://192.168.200.141:9999/repository/maven-public/</url>
+            <url>http://10.10.10.60:9999/repository/maven-public/</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
@@ -120,7 +120,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>2.0.32</version>
+            <version>2.0.8.graal</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

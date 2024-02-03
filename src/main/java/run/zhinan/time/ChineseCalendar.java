@@ -1,7 +1,6 @@
 package run.zhinan.time;
 
 import com.alibaba.fastjson.JSON;
-import run.zhinan.time.lunar.LunarTerm;
 import run.zhinan.time.lunar.LunarYear;
 import run.zhinan.time.solar.SolarTerm;
 
@@ -11,7 +10,6 @@ import java.util.List;
 public class ChineseCalendar {
     public static void main(String[] args) {
         System.out.println(JSON.toJSONString(LunarYear.of(2023)));
-
     }
 
     private static void printSolarTermData(int startYear, int endYear) {

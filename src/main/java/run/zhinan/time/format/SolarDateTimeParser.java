@@ -2,15 +2,17 @@ package run.zhinan.time.format;
 
 import run.zhinan.time.solar.SolarDateTime;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
 public class SolarDateTimeParser extends BaseDateTimeParser implements DateTimeParser<SolarDateTime> {
     private final static DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    public  final static SolarDateTimeParser DEFAULT = new SolarDateTimeParser();
 
     public SolarDateTimeParser() {
-        super(FormatStyle.FULL, NumberStyle.ARABIC);
+        this(FormatStyle.FULL, NumberStyle.ARABIC);
     }
 
     public SolarDateTimeParser(FormatStyle formatStyle, NumberStyle numberStyle) {
@@ -18,10 +20,13 @@ public class SolarDateTimeParser extends BaseDateTimeParser implements DateTimeP
     }
 
     @Override
-    public SolarDateTime parse(String dateString) {
-        return SolarDateTime.of(
-                LocalDateTime.parse(dateString.length() == 16 ? dateString + ":00" : dateString, dateTimeFormatter)
-        );
+    public SolarDateTime parse(String dateTimeString) {
+        String[] strings    = divideDateAndTime(dateTimeString);
+        String dateString   = strings[0];
+        String timeString   = strings.length > 1 ? strings[1] : null;
+        LocalDate localDate = LocalDate.parse(dateString);
+        LocalTime localTime = timeString != null ? LocalTime.parse(timeString) : LocalTime.of(0, 0);
+        return SolarDateTime.of(localDate.atTime(localTime));
     }
 
     @Override

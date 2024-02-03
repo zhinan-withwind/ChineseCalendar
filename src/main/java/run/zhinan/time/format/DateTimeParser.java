@@ -7,21 +7,21 @@ public interface DateTimeParser<T> {
     static DateTimeParser<?> getDateTimeParser(DATE_TYPE dateType) {
         switch (dateType) {
             case SOLAR:
-                return new SolarDateTimeParser();
+                return SolarDateTimeParser.DEFAULT;
             case LUNAR:
-                return new LunarDateTimeParser();
+                return LunarDateTimeParser.DEFAULT;
             case GANZHI:
             default:
                 throw new RuntimeException("不支持的日期类型");
         }
     }
 
-    static DateTimeParser<?> getDateParser(DATE_TYPE dateType) {
+    static DateTimeParser<?> getDateParser    (DATE_TYPE dateType) {
         switch (dateType) {
             case SOLAR:
-                return new SolarDateParser();
+                return SolarDateParser.DEFAULT;
             case LUNAR:
-                return new LunarDateParser();
+                return LunarDateParser.DEFAULT;
             case GANZHI:
             default:
                 throw new RuntimeException("不支持的日期类型");

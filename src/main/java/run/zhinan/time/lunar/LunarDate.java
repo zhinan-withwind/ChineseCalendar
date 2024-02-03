@@ -1,6 +1,7 @@
 package run.zhinan.time.lunar;
 
 import run.zhinan.time.base.BaseDate;
+import run.zhinan.time.base.DateHolder;
 import run.zhinan.time.format.LunarDateParser;
 import run.zhinan.time.solar.SolarYear;
 
@@ -10,7 +11,7 @@ import java.time.temporal.ChronoField;
 import java.time.temporal.TemporalAccessor;
 import java.time.temporal.TemporalField;
 
-public class LunarDate extends BaseDate implements TemporalAccessor {
+public class LunarDate extends BaseDate implements TemporalAccessor, DateHolder {
     LunarYear  lunarYear;
     LunarMonth lunarMonth;
     int year;
@@ -80,6 +81,11 @@ public class LunarDate extends BaseDate implements TemporalAccessor {
         return day;
     }
 
+    @Override
+    public boolean isLeap() {
+        return getLunarMonth().isLeap();
+    }
+
     public LunarYear  getLunarYear() {
         return LunarYear.of(year);
     }
@@ -110,11 +116,17 @@ public class LunarDate extends BaseDate implements TemporalAccessor {
 
     @Override
     public long getLong(TemporalField field) {
-        switch ((ChronoField) field) {
-            case DAY_OF_MONTH: return day;
-            case DAY_OF_YEAR: return getDayOfYear();
-            case MONTH_OF_YEAR: return month;
-            case YEAR: return year;
+        if (field instanceof ChronoField) {
+            switch ((ChronoField) field) {
+                case DAY_OF_MONTH:
+                    return day;
+                case DAY_OF_YEAR:
+                    return getDayOfYear();
+                case MONTH_OF_YEAR:
+                    return month;
+                case YEAR:
+                    return year;
+            }
         }
         return toLocalDate().getLong(field);
     }

@@ -42,7 +42,7 @@ public class LunarMonth {
 
     public static LunarMonth of(int year, int month, boolean leap) {
         LunarYear lunarYear = LunarYear.of(year);
-        int index = month + (leap ? 1 : 0) + (month >= lunarYear.getLeapMonth() ? 1 : 0);
+        int index = month + (leap ? 1 : 0) + (lunarYear.getLeapMonth() > 0 && month >= lunarYear.getLeapMonth() ? 1 : 0);
         return lunarYear.getMonths().get(index - 1);
     }
 
@@ -119,6 +119,7 @@ public class LunarMonth {
     }
 
     public String getName() {
+        LunarYear lunarYear = getLunarYear();
         return  (isLeap() ? "闰" : "") + MONTH_NAME.getNameByValue(value) + "月";
     }
 

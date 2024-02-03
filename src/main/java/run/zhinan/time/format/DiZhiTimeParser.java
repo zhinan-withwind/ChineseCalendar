@@ -2,19 +2,20 @@ package run.zhinan.time.format;
 
 import run.zhinan.time.ganzhi.Zhi;
 
-import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.time.temporal.ChronoField;
 
 public class DiZhiTimeParser extends BaseDateTimeParser implements DateTimeParser<Zhi> {
     public DiZhiTimeParser() {
-        super(FormatStyle.FULL, NumberStyle.CHINESE);
+        this(FormatStyle.FULL, NumberStyle.CHINESE);
     }
 
     public DiZhiTimeParser(FormatStyle formatStyle, NumberStyle numberStyle) {
         super(formatStyle, numberStyle);
     }
+
+    public final static DiZhiTimeParser DEFAULT = new DiZhiTimeParser();
 
     @Override
     public Zhi parse(String timeString) {

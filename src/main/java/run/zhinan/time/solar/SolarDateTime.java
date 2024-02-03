@@ -2,6 +2,7 @@ package run.zhinan.time.solar;
 
 import run.zhinan.time.base.BaseDateTime;
 import run.zhinan.time.base.DateTimeHolder;
+import run.zhinan.time.format.SolarDateTimeParser;
 import run.zhinan.time.ganzhi.GanZhiDateTime;
 import run.zhinan.time.lunar.LunarDateTime;
 
@@ -102,6 +103,6 @@ public class SolarDateTime extends BaseDateTime implements DateTimeHolder, Tempo
 
     @Override
     public String toString() {
-        return super.toString();
+        return SolarDateTimeParser.DEFAULT.format(this);
     }
 }

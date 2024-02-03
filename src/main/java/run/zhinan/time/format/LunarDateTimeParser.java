@@ -24,16 +24,17 @@ public class LunarDateTimeParser extends BaseDateTimeParser implements DateTimeP
 
     @Override
     public LunarDateTime parse(String dateTimeString) {
-        String dateString = dateTimeString.substring(0, dateTimeString.indexOf(SEPARATOR));
-        String timeString = dateTimeString.substring(dateTimeString.indexOf(SEPARATOR) + 1);
+        String[] dateTimeStrings  = divideDateAndTime(dateTimeString);
+        String dateString = dateTimeStrings[0];
+        String timeString = dateTimeStrings.length > 1 ? dateTimeStrings[1] : null;
         LunarDate date = lunarDateParser.parse(dateString);
-        Zhi       time = diZhiTimeParser.parse(timeString);
+        Zhi       time = timeString != null ? diZhiTimeParser.parse(timeString) : Zhi.ZI;
         return date.atTime(time.getValue() - 1);
     }
 
     @Override
     public String format(LunarDateTime lunarDateTime) {
-        return lunarDateParser.format(lunarDateTime.toLunarDate()) + SEPARATOR
+        return lunarDateParser.format(lunarDateTime.toLunarDate()) + DATE_TIME_SEPARATOR
              + diZhiTimeParser.format(Zhi.getByValue(lunarDateTime.getTime() + 1));
     }
 }

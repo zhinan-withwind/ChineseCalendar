@@ -29,9 +29,9 @@ public final class SolarLunarData {
     }
 
     private static void loadData(String dataFilePath, List<List<Integer>> data) {
-        JSONArray dataSet = JSON.parseArray(FileUtil.loadResource(dataFilePath));
-        for (Object o : dataSet) {
-            JSONArray yearData = (JSONArray) o;
+        List<JSONArray> dataSet = JSON.parseArray(FileUtil.loadResource(dataFilePath), JSONArray.class);
+        for (JSONArray o : dataSet) {
+            JSONArray yearData = o;
             List<Integer> dataLine = new ArrayList<>();
             data.add(dataLine);
             for (Object yearDatum : yearData) {
