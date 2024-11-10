@@ -1,5 +1,6 @@
 package run.zhinan.time.ganzhi;
 
+import com.alibaba.fastjson.JSONObject;
 import run.zhinan.time.base.BaseDateTime;
 import run.zhinan.time.base.DateTimeHolder;
 import run.zhinan.time.lunar.LunarDateTime;
@@ -20,6 +21,13 @@ public class GanZhiDateTime extends BaseDateTime implements DateTimeHolder, Temp
     GanZhi day;
     GanZhi time;
 
+    private static int calculateCurrentYear(LocalDateTime dateTime) {
+        // 第一步：计算年份干支
+        // 如果在立春前，则为上一年
+        LocalDateTime springTime = SolarTerm.J01_LICHUN.of(dateTime.getYear()).getDateTime();
+        return dateTime.getYear() - (dateTime.isBefore(springTime) ? 1 : 0);
+    }
+
     GanZhiDateTime(LocalDateTime dateTime) {
         this(GanZhiDate.of(dateTime.toLocalDate()), dateTime.getHour());
         this.dateTime = dateTime;
@@ -27,9 +35,10 @@ public class GanZhiDateTime extends BaseDateTime implements DateTimeHolder, Temp
 
     GanZhiDateTime(GanZhiDate ganZhiDate, int hour) {
         super(ganZhiDate.toLocalDate().atTime(hour, 0));
-        this.year  = ganZhiDate.year;
-        this.month = ganZhiDate.month;
-        this.day   =ganZhiDate.day;
+        int currentYear = calculateCurrentYear(dateTime);
+        this.year  = GanZhi.toGanZhi(currentYear);
+        this.month = GanZhi.toGanZhi(currentYear, SolarTerm.getLastMajorSolarTerm(dateTime).getDateTime().getMonthValue());
+        this.day   = ganZhiDate.day;
 
         // 计算时间干支
         this.time  = GanZhi.toGanZhi(day, hour);
@@ -63,7 +72,6 @@ public class GanZhiDateTime extends BaseDateTime implements DateTimeHolder, Temp
         }
         return of(dateTime);
     }
-
 
     public static List<LocalDateTime> findByGanZhi(int start, int end, GanZhi year, GanZhi month, GanZhi day, GanZhi time) {
         List<LocalDateTime> result = new ArrayList<>();
@@ -175,7 +183,11 @@ public class GanZhiDateTime extends BaseDateTime implements DateTimeHolder, Temp
 
     @Override
     public String toString() {
-        return year.toString() + month + day + time;
+        return year.toString() + "年" + month + "月" + day + "日" + time + "时";
+    }
+
+    public String ganzhiString() {
+        return year.toString() + month.toString() + day.toString() + time;
     }
 
     @Override
@@ -186,5 +198,14 @@ public class GanZhiDateTime extends BaseDateTime implements DateTimeHolder, Temp
     @Override
     public long getLong(TemporalField field) {
         return toLocalDateTime().get(field);
+    }
+
+    public JSONObject toJSON() {
+        return new JSONObject()
+                .fluentPut("year",  getGanZhiYear ().toJSON())
+                .fluentPut("month", getGanZhiMonth().toJSON())
+                .fluentPut("day",   getGanZhiDay  ().toJSON())
+                .fluentPut("time",  getGanZhiTime ().toJSON())
+                .fluentPut("date",  toLocalDateTime());
     }
 }

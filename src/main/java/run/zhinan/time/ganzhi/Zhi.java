@@ -1,6 +1,6 @@
 package run.zhinan.time.ganzhi;
 
-import run.zhinan.time.format.MONTH_NAME;
+import com.alibaba.fastjson.JSONObject;
 
 public enum Zhi {
     ZI  ( 1, "子"),
@@ -16,20 +16,12 @@ public enum Zhi {
     XU  (11, "戌"),
     HAI (12, "亥");
 
-    int value;
-    String name;
+    final int value;
+    final String name;
 
     Zhi(int value, String name) {
         this.value = value;
         this.name = name;
-    }
-
-    public int getValue() {
-        return value;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public static Zhi getByValue(int value) {
@@ -45,5 +37,19 @@ public enum Zhi {
             }
         }
         return result;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public JSONObject toJSON() {
+        return new JSONObject()
+                .fluentPut("value", getValue())
+                .fluentPut("name" , getName() );
     }
 }

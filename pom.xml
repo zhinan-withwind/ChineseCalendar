@@ -67,12 +67,12 @@
             <distributionManagement>
                 <repository>
                     <id>nexus-releases</id>
-                    <url>http://192.168.200.141:9999/repository/maven-releases/</url>
+                    <url>http://10.10.10.60:9999/repository/maven-releases/</url>
                 </repository>
 
                 <snapshotRepository>
                     <id>nexus-snapshots</id>
-                    <url>http://192.168.200.141:9999/repository/maven-snapshots/</url>
+                    <url>http://10.10.10.60:9999/repository/maven-snapshots/</url>
                 </snapshotRepository>
             </distributionManagement>
 

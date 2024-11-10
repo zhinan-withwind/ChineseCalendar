@@ -1,6 +1,6 @@
 package run.zhinan.time.ganzhi;
 
-import run.zhinan.time.format.CHINESE_NUMBER;
+import com.alibaba.fastjson.JSONObject;
 
 public enum Gan {
     JIA ( 1, "甲"),
@@ -14,8 +14,8 @@ public enum Gan {
     REN ( 9, "壬"),
     GUI (10, "癸");
 
-    int value;
-    String name;
+    final int value;
+    final String name;
 
     Gan(int value, String name) {
         this.value = value;
@@ -43,5 +43,11 @@ public enum Gan {
             }
         }
         return result;
+    }
+
+    public JSONObject toJSON() {
+        return new JSONObject()
+                .fluentPut("value", getValue())
+                .fluentPut("name" , getName() );
     }
 }

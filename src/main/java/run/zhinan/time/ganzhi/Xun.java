@@ -1,11 +1,13 @@
 package run.zhinan.time.ganzhi;
 
+import com.alibaba.fastjson.JSONObject;
+
 public enum Xun {
     JIA_ZI(0, "甲子"), JIA_XU  (1, "甲戌"), JIA_SHEN(2, "甲申"),
     JIA_WU(3, "甲午"), JIA_CHEN(4, "甲辰"), JIA_YIN (5, "甲寅");
 
-    int value;
-    String name;
+    final int value;
+    final String name;
 
     Xun(int value, String name) {
         this.value = value;
@@ -33,5 +35,11 @@ public enum Xun {
 
     public static Xun getByValue(int value) {
         return values()[value];
+    }
+
+    public JSONObject toJSON() {
+        return new JSONObject()
+                .fluentPut("value", getValue())
+                .fluentPut("name" , getName() );
     }
 }

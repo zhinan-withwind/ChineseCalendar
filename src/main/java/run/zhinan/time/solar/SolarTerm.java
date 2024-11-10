@@ -110,9 +110,7 @@ public final class SolarTerm {
     private static int getSolarTermYear(LocalDateTime dateTime) {
         int year = dateTime.getYear();
         // 在立春之前，则需要算是上一年
-        if (dateTime.isBefore(SolarTerm.J01_LICHUN.of(year).getDateTime())) {
-            year -= 1;
-        }
+        if (dateTime.isBefore(SolarTerm.J01_LICHUN.of(year).getDateTime())) year--;
         return year;
     }
 
@@ -133,5 +131,10 @@ public final class SolarTerm {
 
     public static SolarTerm getNextMajorSolarTerm(LocalDateTime dateTime) {
         return getLastMajorSolarTerm(dateTime).roll(2);
+    }
+
+    public static SolarTerm getLastSolarTerm(LocalDateTime dateTime) {
+        SolarTerm solarTerm = getLastMajorSolarTerm(dateTime);
+        return !solarTerm.roll(1).getDateTime().isAfter(dateTime) ? solarTerm.roll(1) : solarTerm;
     }
 }

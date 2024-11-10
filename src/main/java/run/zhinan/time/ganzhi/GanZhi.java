@@ -1,5 +1,6 @@
 package run.zhinan.time.ganzhi;
 
+import com.alibaba.fastjson.JSONObject;
 import run.zhinan.time.solar.SolarDate;
 
 import java.time.LocalDate;
@@ -81,5 +82,13 @@ public class GanZhi {
     @Override
     public String toString() {
         return getName();
+    }
+
+    public JSONObject toJSON() {
+        return new JSONObject()
+                .fluentPut("value", getValue())
+                .fluentPut("name", getName())
+                .fluentPut("gan", gan.toJSON())
+                .fluentPut("zhi", zhi.toJSON());
     }
 }

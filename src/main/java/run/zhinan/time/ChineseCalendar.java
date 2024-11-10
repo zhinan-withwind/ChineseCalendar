@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ChineseCalendar {
     public static void main(String[] args) {
-        System.out.println(JSON.toJSONString(LunarYear.of(2023)));
+        System.out.println(JSON.toJSONString(LunarYear.of(2024)));
     }
 
     private static void printSolarTermData(int startYear, int endYear) {

@@ -9,39 +9,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8f729a4-272c-4389-b1a2-f20ff1d82f7f" name="Changes" comment="完成了阳历的日期格式化">
-      <change afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/base/DateHolder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/base/Region.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/base/ZodiacSign.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/festival/Festival.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/festival/LunarFestival.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/festival/SolarFestival.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/festival/SolarTermFestival.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/festival/WeekBaseFestival.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/util/RegionUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data/region.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/FestivalTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/SolarTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/data/region.json" afterDir="false" />
+    <list default="true" id="b8f729a4-272c-4389-b1a2-f20ff1d82f7f" name="Changes" comment="修正了干支日历计算中的一些BUG">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ChineseCalendar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ChineseCalendar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/base/BaseDateTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/base/BaseDateTime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/base/DateTimeHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/base/DateTimeHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/base/SolarLunarData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/base/SolarLunarData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/format/BaseDateTimeParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/format/BaseDateTimeParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/format/DATE_TYPE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/format/DATE_TYPE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/format/DateTimeParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/format/DateTimeParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/format/DiZhiTimeParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/format/DiZhiTimeParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/format/LunarDateParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/format/LunarDateParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/format/LunarDateTimeParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/format/LunarDateTimeParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/format/SolarDateParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/format/SolarDateParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/format/SolarDateTimeParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/format/SolarDateTimeParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/lunar/LunarDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/lunar/LunarDate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/lunar/LunarMonth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/lunar/LunarMonth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/solar/SolarDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/solar/SolarDate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/solar/SolarDateTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/solar/SolarDateTime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/FormatTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/FormatTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/Gan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/Gan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/GanZhi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/GanZhi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/GanZhiDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/GanZhiDate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/GanZhiDateTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/GanZhiDateTime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/Xun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/Xun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/Zhi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/Zhi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/solar/SolarTerm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/solar/SolarTerm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/util/RegionUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/util/RegionUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/GanZhiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GanZhiTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/SolarTermTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SolarTermTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,15 +38,22 @@
       </list>
     </option>
   </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="false" />
+    <option name="myAllFileTypesSelected" value="true" />
+    <option name="mySelectedFileTypes">
+      <set />
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "zhinan-withwind"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;zhinan-withwind&quot;
   }
-}]]></component>
+}</component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
       <filtered-out-file-type name="LOCAL_BRANCH" />
@@ -74,13 +62,14 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="396af2a1-1a15-488d-9c0d-fbc2b3deadc3" />
-        <option name="url" value="https://github.com/zhinan-withwind/ChineseCalendar.git" />
-      </UrlAndAccount>
-    </option>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/zhinan-withwind/ChineseCalendar.git&quot;,
+    &quot;accountId&quot;: &quot;962cee47-ecf8-4815-9a0d-e4e96fbeea0d&quot;
+  }
+}</component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="true" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/GanZhiDateTime.java" root0="FORCE_HIGHLIGHTING" />
@@ -116,11 +105,18 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="false" />
+    <option name="myAllFileTypesSelected" value="true" />
+    <option name="mySelectedFileTypes">
+      <set />
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2KQykE4JG8XcebdARYlaavjGfjj" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -129,16 +125,32 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.ChineseCalendar.executor": "Run",
+    "Application.RegionUtil.executor": "Run",
+    "JUnit.GanZhiTest.exportData.executor": "Debug",
+    "JUnit.GanZhiTest.testGanZhiDateTime.executor": "Run",
+    "JUnit.GanZhiTest.testSingleGanZhiDateTime.executor": "Debug",
+    "JUnit.SolarTermTest.exportData.executor": "Run",
+    "JUnit.SolarTermTest.exportSingleYearData.executor": "Run",
     "Maven.ChineseCalendar [clean].executor": "Run",
     "Maven.ChineseCalendar [compile].executor": "Run",
+    "Maven.ChineseCalendar [deploy].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
     "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "go.import.settings.migrated": "true",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -164,9 +176,9 @@
       <command value="mvn --version" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.RegionUtil">
+  <component name="RunManager" selected="JUnit.SolarTermTest.exportSingleYearData">
     <configuration name="ChineseCalendar" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="run.zhinan.time.ChineseCalendar" />
       <module name="ChineseCalendar" />
@@ -174,69 +186,79 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegionUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="run.zhinan.time.util.RegionUtil" />
-      <module name="ChineseCalendar" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="run.zhinan.time.util.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FestivalTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GanZhiTest.exportData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ChineseCalendar" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="FestivalTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="GanZhiTest" />
+      <option name="METHOD_NAME" value="exportData" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FormatTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GanZhiTest.testGanZhiDateTime" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ChineseCalendar" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="FormatTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="GanZhiTest" />
+      <option name="METHOD_NAME" value="testGanZhiDateTime" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LunarTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GanZhiTest.testSingleGanZhiDateTime" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ChineseCalendar" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="LunarTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="GanZhiTest" />
+      <option name="METHOD_NAME" value="testSingleGanZhiDateTime" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SolarTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SolarTermTest.exportData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ChineseCalendar" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SolarTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="SolarTermTest" />
+      <option name="METHOD_NAME" value="exportData" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SolarTermTest.exportSingleYearData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ChineseCalendar" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SolarTermTest" />
+      <option name="METHOD_NAME" value="exportSingleYearData" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.ChineseCalendar" />
+      <item itemvalue="JUnit.GanZhiTest.exportData" />
+      <item itemvalue="JUnit.GanZhiTest.testGanZhiDateTime" />
+      <item itemvalue="JUnit.GanZhiTest.testSingleGanZhiDateTime" />
+      <item itemvalue="JUnit.SolarTermTest.exportData" />
+      <item itemvalue="JUnit.SolarTermTest.exportSingleYearData" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.RegionUtil" />
-        <item itemvalue="JUnit.SolarTest" />
-        <item itemvalue="JUnit.FestivalTest" />
-        <item itemvalue="JUnit.FormatTest" />
-        <item itemvalue="JUnit.LunarTest" />
+        <item itemvalue="JUnit.SolarTermTest.exportSingleYearData" />
+        <item itemvalue="JUnit.GanZhiTest.testSingleGanZhiDateTime" />
+        <item itemvalue="JUnit.GanZhiTest.exportData" />
+        <item itemvalue="JUnit.GanZhiTest.testGanZhiDateTime" />
+        <item itemvalue="JUnit.SolarTermTest.exportData" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-1.8.0_402-corretto-1.8.0_402-f644763e9732-1a501b52" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
       </set>
     </attachedChunks>
   </component>
@@ -275,6 +297,32 @@
       <workItem from="1705659907204" duration="964000" />
       <workItem from="1705665733772" duration="1017000" />
       <workItem from="1706921787698" duration="1408000" />
+      <workItem from="1707034170271" duration="774000" />
+      <workItem from="1708595398369" duration="989000" />
+      <workItem from="1708611157909" duration="626000" />
+      <workItem from="1709603364253" duration="5187000" />
+      <workItem from="1709695120516" duration="1159000" />
+      <workItem from="1714396573380" duration="3767000" />
+      <workItem from="1715311965765" duration="599000" />
+      <workItem from="1716264721034" duration="1324000" />
+      <workItem from="1716802063179" duration="1260000" />
+      <workItem from="1719828266425" duration="1823000" />
+      <workItem from="1722574652806" duration="304000" />
+      <workItem from="1722574995076" duration="589000" />
+      <workItem from="1723704714308" duration="1565000" />
+      <workItem from="1724056479110" duration="588000" />
+      <workItem from="1724289785764" duration="599000" />
+      <workItem from="1724734479554" duration="159000" />
+      <workItem from="1724734668963" duration="23000" />
+      <workItem from="1724735136236" duration="599000" />
+      <workItem from="1724918636408" duration="2197000" />
+      <workItem from="1726794948216" duration="598000" />
+      <workItem from="1727670476086" duration="529000" />
+      <workItem from="1727672202629" duration="599000" />
+      <workItem from="1728348292441" duration="3316000" />
+      <workItem from="1728480974554" duration="4119000" />
+      <workItem from="1730125189277" duration="599000" />
+      <workItem from="1730336750352" duration="22162000" />
     </task>
     <task id="LOCAL-00001" summary="初始提交，已完成节气计算部分">
       <created>1675071678443</created>
@@ -357,7 +405,12 @@
     <MESSAGE value="完成了干支历的计算部分" />
     <MESSAGE value="完成了阴历的日期格式化" />
     <MESSAGE value="完成了阳历的日期格式化" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成了阳历的日期格式化" />
+    <MESSAGE value="修正了干支日历计算中的一些BUG" />
+    <option name="LAST_COMMIT_MESSAGE" value="修正了干支日历计算中的一些BUG" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>false</integration-enabled>
+    <settings-migrated>true</settings-migrated>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -368,9 +421,9 @@
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/run/zhinan/time/format/LunarDateParser.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="12" />
+          <url>file://$PROJECT_DIR$/src/test/java/GanZhiTest.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
