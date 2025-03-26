@@ -3,6 +3,7 @@ package run.zhinan.time.festival;
 import run.zhinan.time.solar.SolarDate;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,5 +49,9 @@ public enum SolarFestival {
             }
         }
         return festivalNameList;
+    }
+
+    public LocalDateTime of(int year) {
+        return SolarDate.of(year, month, day).toLocalDate().atTime(0, 0);
     }
 }

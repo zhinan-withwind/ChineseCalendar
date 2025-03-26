@@ -55,7 +55,7 @@ public class SolarTermTest {
 
     @Test
     public void exportSingleYearData() {
-        int year = 1986;
+        int year = 2025;
         List<String> data = exportData(year);
         for (int i = 0; i < data.size(); i++) {
             String d = data.get(i);
@@ -65,6 +65,5 @@ public class SolarTermTest {
             System.out.println(solarTerm.getName() + " - " + d + " - " + solarTerm.getDateTime() + " - " + dateTime);
             Assert.assertEquals(solarTerm.getDateTime(), dateTime);
         }
-
     }
 }

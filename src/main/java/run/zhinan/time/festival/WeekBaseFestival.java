@@ -1,6 +1,7 @@
 package run.zhinan.time.festival;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,5 +32,9 @@ public enum WeekBaseFestival {
             }
         }
         return festivalNameList;
+    }
+
+    public LocalDateTime of(int year) {
+        return LocalDate.of(year, month, (week - 1) * 7 + offset).atTime(0, 0);
     }
 }

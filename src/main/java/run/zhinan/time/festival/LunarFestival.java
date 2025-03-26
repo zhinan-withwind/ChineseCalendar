@@ -3,6 +3,7 @@ package run.zhinan.time.festival;
 import run.zhinan.time.lunar.LunarDate;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,5 +40,9 @@ public enum LunarFestival {
             }
         }
         return festivalNameList;
+    }
+
+    public LocalDateTime of(int year) {
+        return LunarDate.of(year, month, day, false).toLocalDate().atTime(0, 0);
     }
 }

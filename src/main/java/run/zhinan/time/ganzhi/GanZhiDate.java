@@ -50,13 +50,7 @@ public class GanZhiDate extends BaseDate implements TemporalAccessor {
     }
 
     public GanZhiDateTime atTime(LocalTime time) {
-        GanZhiDateTime ganZhiDateTime = atTime(time.getHour());
-        ganZhiDateTime.setDateTime(toLocalDate().atTime(time));
-        return ganZhiDateTime;
-    }
-
-    public GanZhiDateTime atTime(int hour) {
-        return new GanZhiDateTime(this, hour);
+        return GanZhiDateTime.of(toLocalDate().atTime(time));
     }
 
     public GanZhi getGanZhiYear() {

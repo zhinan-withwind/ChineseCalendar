@@ -3,6 +3,7 @@ package run.zhinan.time.festival;
 import run.zhinan.time.solar.SolarTerm;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,5 +56,9 @@ public enum SolarTermFestival {
             }
         }
         return festivalNameList;
+    }
+
+    public LocalDateTime of(int year) {
+        return solarTerm.of(year).getDateTime();
     }
 }

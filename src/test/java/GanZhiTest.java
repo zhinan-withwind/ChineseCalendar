@@ -40,7 +40,7 @@ public class GanZhiTest {
 
     @Test
     public void testSingleGanZhiDateTime() {
-        LocalDateTime dateTime = LocalDateTime.of(1986, 6, 6, 8, 0);
+        LocalDateTime dateTime = LocalDateTime.of(2025, 2, 3, 22, 30);
         JSONObject data = loadTestData(dateTime.getYear());
         GanZhiDateTime ganZhiDateTime = GanZhiDateTime.ofNoMidnight(dateTime);
         System.out.println(ganZhiDateTime.ganzhiString());
@@ -58,5 +58,11 @@ public class GanZhiTest {
             startTime = startTime.plusHours(1);
         }
         FileUtil.saveToFile("/Users/withwind/Downloads/ganZhiData.json", JSON.toJSONString(result, true));
+    }
+
+    @Test
+    public void testSpecialGanZhiDateTime() {
+        System.out.println(GanZhiDateTime.ofNoMidnight(LocalDateTime.of(2025, 2, 3, 22,  1)));
+        System.out.println(GanZhiDateTime.ofNoMidnight(LocalDateTime.of(2025, 2, 3, 22, 30)));
     }
 }

@@ -29,19 +29,12 @@ public class GanZhiDateTime extends BaseDateTime implements DateTimeHolder, Temp
     }
 
     GanZhiDateTime(LocalDateTime dateTime) {
-        this(GanZhiDate.of(dateTime.toLocalDate()), dateTime.getHour());
-        this.dateTime = dateTime;
-    }
-
-    GanZhiDateTime(GanZhiDate ganZhiDate, int hour) {
-        super(ganZhiDate.toLocalDate().atTime(hour, 0));
         int currentYear = calculateCurrentYear(dateTime);
+        this.dateTime = dateTime;
         this.year  = GanZhi.toGanZhi(currentYear);
         this.month = GanZhi.toGanZhi(currentYear, SolarTerm.getLastMajorSolarTerm(dateTime).getDateTime().getMonthValue());
-        this.day   = ganZhiDate.day;
-
-        // 计算时间干支
-        this.time  = GanZhi.toGanZhi(day, hour);
+        this.day   = GanZhi.toGanZhi(dateTime.getYear(), dateTime.getMonthValue(), dateTime.getDayOfMonth());
+        this.time  = GanZhi.toGanZhi(day, dateTime.getHour());
     }
 
     GanZhiDateTime(GanZhi year, GanZhi month, GanZhi day, GanZhi time) {

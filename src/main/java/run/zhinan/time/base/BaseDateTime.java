@@ -8,6 +8,7 @@ public class BaseDateTime extends BaseDate {
     public BaseDateTime() {}
 
     public BaseDateTime(LocalDateTime dateTime) {
+        super(dateTime.toLocalDate());
         this.dateTime = dateTime;
     }
 

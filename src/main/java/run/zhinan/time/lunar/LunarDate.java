@@ -97,7 +97,7 @@ public class LunarDate extends BaseDate implements TemporalAccessor, DateHolder 
     public int getDayOfYear() {
         int days = 0;
         LunarYear lunarYear = LunarYear.of(this.year);
-        for (int i = 0; i < this.month - 1; i++) {
+        for (int i = 0; i < this.lunarMonth.getIndex() - 1; i++) {
             days += lunarYear.getMonths().get(i).dayNum;
         }
         days += this.day;

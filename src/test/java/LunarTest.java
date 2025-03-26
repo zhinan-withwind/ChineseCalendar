@@ -1,9 +1,9 @@
-import com.alibaba.fastjson.JSON;
+
 import org.junit.Assert;
 import org.junit.Test;
-import run.zhinan.time.format.LunarDateParser;
 import run.zhinan.time.format.LunarDateTimeParser;
 import run.zhinan.time.format.NumberStyle;
+import run.zhinan.time.lunar.LunarDate;
 import run.zhinan.time.lunar.LunarDateTime;
 import run.zhinan.time.lunar.LunarYear;
 
@@ -52,6 +52,17 @@ public class LunarTest {
             System.out.println(lunarDateTime.toLunarDate().getLunarMonth().getIndex());
             System.out.println("============================");
         }
+    }
+
+    @Test
+    public void testLunarDate() {
+        LunarDate lunarDate = LunarDate.of(LocalDate.of(1996, 2, 1));
+        lunarDate.setDate(null);
+        int springDayNum = lunarDate.getLunarYear().getSpringDay().getDayOfYear();
+        int dayOfYear = lunarDate.getDayOfYear();
+        int days = springDayNum - 1 + dayOfYear;
+        System.out.println(days);
+        Assert.assertEquals(LocalDate.of(1996,2,1), lunarDate.toLocalDate());
     }
 
     private final static int[] LUNAR_DATE_DATA = new int[] {

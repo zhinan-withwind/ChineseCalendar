@@ -14,12 +14,15 @@ public interface DateTimeHolder extends DateHolder {
     LunarDateTime  toLunarDateTime();
     GanZhiDateTime toGanZhiDateTime();
 
-    static LocalDateTime toMeanSolarTime(LocalDateTime dateTime, String regionCode) {
-        Region region = Region.getByCode(regionCode);
+    static LocalDateTime toMeanSolarTime(LocalDateTime dateTime, Region region) {
         return region != null ? dateTime.plusSeconds((long)((region.getLongitude() - 120.0D) * 240.0D)) : dateTime;
     }
 
-    static LocalDateTime toApparentSolarTime(LocalDateTime dateTime, String region) {
+    static LocalDateTime toMeanSolarTime(LocalDateTime dateTime, String regionCode) {
+        return toMeanSolarTime(dateTime, Region.getByCode(regionCode));
+    }
+
+    static LocalDateTime toApparentSolarTime(LocalDateTime dateTime, Region region) {
         if (region == null) {
             return dateTime;
         } else {
@@ -28,5 +31,9 @@ public interface DateTimeHolder extends DateHolder {
             double t = 0.0028D - 1.9857D * Math.sin(sita) + 9.9059D * Math.sin(2.0D * sita) - 7.0924D * Math.cos(sita) - 0.6882D * Math.cos(2.0D * sita);
             return toMeanSolarTime(dateTime, region).plusMinutes((new Double(Math.floor(t))).longValue()).plusSeconds((new Double((double)Math.floorMod((new Double(t * 100.0D)).intValue(), 100) * 0.6D)).longValue());
         }
+    }
+
+    static LocalDateTime toApparentSolarTime(LocalDateTime dateTime, String region) {
+        return region == null ? dateTime : toApparentSolarTime(dateTime, Region.getByCode(region));
     }
 }
