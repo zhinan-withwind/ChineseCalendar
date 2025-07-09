@@ -11,21 +11,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b8f729a4-272c-4389-b1a2-f20ff1d82f7f" name="Changes" comment="修改了内蒙古赛罕区的精度值：原来是111.701710，现在改为111.911710">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/base/BaseDateTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/base/BaseDateTime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/base/DateTimeHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/base/DateTimeHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/festival/Festival.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/festival/Festival.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/festival/LunarFestival.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/festival/LunarFestival.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/festival/SolarFestival.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/festival/SolarFestival.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/festival/SolarTermFestival.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/festival/SolarTermFestival.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/festival/WeekBaseFestival.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/festival/WeekBaseFestival.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/GanZhiDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/GanZhiDate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/GanZhiDateTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/ganzhi/GanZhiDateTime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/zhinan/time/lunar/LunarDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/zhinan/time/lunar/LunarDate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/data/region.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/region.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/GanZhiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GanZhiTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LunarTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LunarTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/SolarTermTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SolarTermTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/SolarTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SolarTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/data/region.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/data/region.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,49 +95,50 @@
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2KQykE4JG8XcebdARYlaavjGfjj" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ChineseCalendar.executor": "Run",
-    "Application.Festival.executor": "Run",
-    "Application.RegionUtil.executor": "Run",
-    "JUnit.GanZhiTest.exportData.executor": "Debug",
-    "JUnit.GanZhiTest.testGanZhiDateTime.executor": "Run",
-    "JUnit.GanZhiTest.testSingleGanZhiDateTime.executor": "Run",
-    "JUnit.GanZhiTest.testSpecialGanZhiDateTime.executor": "Run",
-    "JUnit.LunarTest.testLunarDate.executor": "Run",
-    "JUnit.SolarTermTest.exportData.executor": "Run",
-    "JUnit.SolarTermTest.exportSingleYearData.executor": "Run",
-    "JUnit.SolarTest.testApparentSolarTime.executor": "Run",
-    "Maven.ChineseCalendar [clean].executor": "Run",
-    "Maven.ChineseCalendar [compile].executor": "Run",
-    "Maven.ChineseCalendar [deploy].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "main",
-    "go.import.settings.migrated": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.35977012",
-    "show.migrate.to.gradle.popup": "false",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ChineseCalendar.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Festival.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RegionUtil.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GanZhiTest.exportData.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.GanZhiTest.testGanZhiDateTime.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GanZhiTest.testSingleGanZhiDateTime.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GanZhiTest.testSpecialGanZhiDateTime.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LunarTest.testLunarDate.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SolarTermTest.exportData.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SolarTermTest.exportSingleYearData.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SolarTest.testApparentSolarTime.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ChineseCalendar [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ChineseCalendar [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ChineseCalendar [deploy].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.35977012&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/data" />
@@ -257,8 +245,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26927.53" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-IU-251.26927.53" />
       </set>
     </attachedChunks>
   </component>
@@ -333,7 +321,14 @@
       <workItem from="1738716344584" duration="2976000" />
       <workItem from="1738822730007" duration="682000" />
       <workItem from="1738824270179" duration="7300000" />
-      <workItem from="1742988831103" duration="1308000" />
+      <workItem from="1742988831103" duration="8848000" />
+      <workItem from="1743272741540" duration="837000" />
+      <workItem from="1748798584873" duration="691000" />
+      <workItem from="1749900682438" duration="593000" />
+      <workItem from="1750721520178" duration="595000" />
+      <workItem from="1751247450873" duration="599000" />
+      <workItem from="1752023226151" duration="449000" />
+      <workItem from="1752030671599" duration="599000" />
     </task>
     <task id="LOCAL-00001" summary="初始提交，已完成节气计算部分">
       <created>1675071678443</created>
@@ -399,7 +394,31 @@
       <option name="project" value="LOCAL" />
       <updated>1731254955579</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="修改了内蒙古赛罕区的精度值：原来是111.701710，现在改为111.911710">
+      <option name="closed" value="true" />
+      <created>1742990216106</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1742990216106</updated>
+    </task>
+    <task id="LOCAL-00011" summary="修改了内蒙古赛罕区的精度值：原来是111.701710，现在改为111.911710">
+      <option name="closed" value="true" />
+      <created>1742990224424</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1742990224424</updated>
+    </task>
+    <task id="LOCAL-00012" summary="修改了内蒙古赛罕区的精度值：原来是111.701710，现在改为111.911710">
+      <option name="closed" value="true" />
+      <created>1742990389918</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1742990389918</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
